@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Officer\'s Club</string>
+
+    <!-- Base class strings -->
+    <string name="some_error">Something went wrong!</string>
+    <string name="not_connected_to_internet">Please check your network connection and try again.</string>
+
+    <!-- Login -->
+    <string name="login">LOGIN</string>
+    <string name="hint_enter_mobile">Enter Mobile</string>
+    <string name="info"></string>
+    <string name="welcome">Welcome</string>
+
+    <!-- OTP -->
+    <string name="enter_otp">Enter your \nVerification code</string>
+    <string name="enter_otp_info">We hav sent a verification code to +9822620192</string>
+    <string name="verify">VERIFY</string>
+</resources>
