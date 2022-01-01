@@ -8,11 +8,20 @@
     <!-- Login -->
     <string name="login">LOGIN</string>
     <string name="hint_enter_mobile">Enter Mobile</string>
-    <string name="info"></string>
     <string name="welcome">Welcome</string>
 
     <!-- OTP -->
     <string name="enter_otp">Enter your \nVerification code</string>
-    <string name="enter_otp_info">We hav sent a verification code to +9822620192</string>
+    <string name="enter_otp_info">We sent a verification code to 9822620192</string>
     <string name="verify">VERIFY</string>
+
+    <!-- profile -->
+    <string name="complete">Complete your profile</string>
+    <string name="add_details">Add a profile photo, name and bio to let people know who you are</string>
+    <string name="name">Enter Name</string>
+    <string name="birthdate">Enter Birthdate</string>
+    <string name="address">Enter Address</string>
+    <string name="email">Enter Email</string>
+    <string name="submit">SUBMIT</string>
+    <string name="gender">Gender</string>
 </resources>

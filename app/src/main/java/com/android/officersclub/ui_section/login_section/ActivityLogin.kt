@@ -8,9 +8,10 @@ import android.text.Html
 import androidx.databinding.DataBindingUtil
 import com.android.officersclub.R
 import com.android.officersclub.databinding.ActivityLoginBinding
+import com.android.officersclub.ui_section.base_section.BaseActivity
 import com.android.officersclub.ui_section.otp_section.ActivityOtp
 
-class ActivityLogin : AppCompatActivity() {
+class ActivityLogin : BaseActivity() {
     private lateinit var mActivityLoginBinding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

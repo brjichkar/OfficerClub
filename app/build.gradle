@@ -50,4 +50,10 @@ dependencies {
 
     // encrypt shared pref
     implementation "androidx.security:security-crypto:1.1.0-alpha03"
+
+    // calender integration
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+
+    // image selection integration
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
 }
