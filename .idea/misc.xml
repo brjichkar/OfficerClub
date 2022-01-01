@@ -3,14 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_add.xml" value="0.2703125" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_add_white.xml" value="0.2703125" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_booking.xml" value="0.2703125" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_customer_service.xml" value="0.2703125" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_home.xml" value="0.2703125" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_user.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/rounded_square_edt.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/splash_background.xml" value="0.2703125" />
-        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_home.xml" value="0.2463768115942029" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_main.xml" value="0.2504528985507246" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_otp.xml" value="0.264" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_profile.xml" value="0.2504528985507246" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/progress_dialog.xml" value="0.2504528985507246" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/menu/menu_navigation_center_fab.xml" value="0.4" />
       </map>
     </option>
   </component>

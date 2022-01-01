@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/i_home"
+        android:checked="true"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/i_booking"
+        android:icon="@drawable/ic_booking"
+        android:title="Booking" />
+
+    <item
+        android:id="@+id/i_add"
+        android:title="Add" />
+    <item
+        android:id="@+id/i_profile"
+        android:icon="@drawable/ic_user"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/i_support"
+        android:icon="@drawable/ic_customer_service"
+        android:title="Support" />
+
+</menu>

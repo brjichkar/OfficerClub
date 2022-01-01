@@ -9,5 +9,31 @@
         android:background="@color/white"
         tools:context=".ui_section.home_section.ActivityHome">
 
+        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+            android:id="@+id/home_bnve"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:theme="@style/NavDrawerTextStyle"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/black"
+            app:menu="@menu/menu_navigation_center_fab"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_checkout"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:src="@drawable/ic_add_white"
+            app:backgroundTint="#DE3163"
+            app:tint="@color/white"
+            app:borderWidth="0dp"
+            app:elevation="@dimen/_8sdp"
+            app:fabSize="normal" />
+
     </RelativeLayout>
 </layout>

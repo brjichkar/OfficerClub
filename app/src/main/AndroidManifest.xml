@@ -13,7 +13,8 @@
         android:theme="@style/Theme.OfficersClub">
         <activity
             android:name=".ui_section.home_section.ActivityHome"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui_section.profile_section.ActivityProfile"
             android:exported="false"

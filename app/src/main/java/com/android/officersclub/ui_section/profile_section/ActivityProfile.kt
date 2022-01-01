@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.android.officersclub.R
 import com.android.officersclub.databinding.ActivityProfileBinding
 import com.android.officersclub.ui_section.base_section.BaseActivity
+import com.android.officersclub.ui_section.home_section.ActivityHome
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import java.util.*
@@ -47,6 +48,12 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener {
                     )
                 )
                 .start()
+        }
+
+        mActivityProfileBinding.btnSubmit.setOnClickListener {
+            val mainActIntent = Intent(this, ActivityHome::class.java)
+            startActivity(mainActIntent)
+            finish()
         }
     }
 
