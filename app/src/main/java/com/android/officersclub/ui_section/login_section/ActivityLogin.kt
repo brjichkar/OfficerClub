@@ -2,7 +2,6 @@ package com.android.officersclub.ui_section.login_section
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import androidx.databinding.DataBindingUtil
@@ -27,9 +26,29 @@ class ActivityLogin : BaseActivity() {
         }
 
         mActivityLoginBinding.btnLogin.setOnClickListener {
-            val mainActIntent = Intent(this, ActivityOtp::class.java)
-            startActivity(mainActIntent)
-            finish()
+            if(isDataValid()){
+                val mainActIntent = Intent(this, ActivityOtp::class.java)
+                startActivity(mainActIntent)
+                finish()
+            }
+        }
+    }
+
+
+    /**
+     *  @Function : isDataValid()
+     *  @params   : void
+     *  @Return   : Boolean
+     * 	@Usage	  : check for validation of UI return true when data is valid and false when validation failed.
+     */
+    private fun isDataValid():Boolean{
+        hideKeyboard()
+        return if (mActivityLoginBinding.etPhone.text.toString().isNotEmpty() && mActivityLoginBinding.etPhone.text.toString().length==10)
+        {
+           true
+        } else {
+            onError(R.string.empty_error)
+            false
         }
     }
 }

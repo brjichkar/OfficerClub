@@ -62,7 +62,6 @@
                     android:inputType="number|phone"
                     android:maxLength="10"
                     android:maxLines="1"
-                    android:minLines="10"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textAppearance="?android:attr/textAppearanceMedium" />

@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_user_img"
                     android:layout_width="@dimen/_140sdp"
                     android:layout_height="@dimen/_140sdp"
@@ -141,7 +141,7 @@
                         android:text="Male"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:background="@drawable/rounded_square_edt"
-                        android:textSize="@dimen/_16sdp"/>
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
                     <RadioButton
                         android:layout_width="0dp"
@@ -150,7 +150,7 @@
                         android:text="Female"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@drawable/rounded_square_edt"
-                        android:textSize="@dimen/_16sdp"/>
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
                 </RadioGroup>
 

@@ -2,7 +2,6 @@ package com.android.officersclub.ui_section.otp_section
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import androidx.databinding.DataBindingUtil
@@ -31,4 +30,5 @@ class ActivityOtp : BaseActivity() {
             finish()
         }
     }
-}
+
+   }

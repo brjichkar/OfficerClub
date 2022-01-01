@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OfficersClub">
         <activity
+            android:name=".ui_section.home_section.ActivityHome"
+            android:exported="false" />
+        <activity
             android:name=".ui_section.profile_section.ActivityProfile"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui_section.otp_section.ActivityOtp"
             android:exported="false"

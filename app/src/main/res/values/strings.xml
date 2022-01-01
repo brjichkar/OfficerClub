@@ -9,7 +9,7 @@
     <string name="login">LOGIN</string>
     <string name="hint_enter_mobile">Enter Mobile</string>
     <string name="welcome">Welcome</string>
-
+    <string name="empty_error">Please enter valid mobile number</string>
     <!-- OTP -->
     <string name="enter_otp">Enter your \nVerification code</string>
     <string name="enter_otp_info">We sent a verification code to 9822620192</string>
