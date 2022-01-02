@@ -3,6 +3,7 @@ package com.android.officersclub.ui_section.splash_section
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.android.officersclub.ui_section.home_section.ActivityHome
 import com.android.officersclub.ui_section.login_section.ActivityLogin
 
 class ActivitySplash : AppCompatActivity() {
@@ -20,7 +21,7 @@ class ActivitySplash : AppCompatActivity() {
      * 	@Usage	  : Decide which screen for to show next.
      */
     private fun moveToNextSection(){
-        val mainActIntent = Intent(this, ActivityLogin::class.java)
+        val mainActIntent = Intent(this, ActivityHome::class.java)
         startActivity(mainActIntent)
         finish()
     }

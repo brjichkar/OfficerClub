@@ -3,11 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/bottom_rounded_squre.xml" value="0.2462962962962963" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_add.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_add_white.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_booking.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_customer_service.xml" value="0.2703125" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_family.xml" value="0.23703703703703705" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_home.xml" value="0.2703125" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_membership.xml" value="0.23703703703703705" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_next.xml" value="0.23703703703703705" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_next_section.xml" value="0.23703703703703705" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_qr_code.xml" value="0.23703703703703705" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_rating.xml" value="0.23703703703703705" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_review.xml" value="0.23703703703703705" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_support.xml" value="0.23703703703703705" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/ic_user.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/rounded_square_edt.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/splash_background.xml" value="0.2703125" />
@@ -16,7 +25,12 @@
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_main.xml" value="0.2504528985507246" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_otp.xml" value="0.264" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_profile.xml" value="0.2504528985507246" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/fragment_booking.xml" value="0.25416666666666665" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/fragment_home.xml" value="0.2151268115942029" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/fragment_profile.xml" value="0.22735507246376813" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/fragment_support.xml" value="0.25416666666666665" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/progress_dialog.xml" value="0.2504528985507246" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/row_registered_user_history.xml" value="0.25416666666666665" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/menu/menu_navigation_center_fab.xml" value="0.4" />
       </map>
     </option>

@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -40,6 +42,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -60,6 +63,10 @@ dependencies {
     // circular image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    // bottom navigation
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
     implementation "com.android.support:design:26.+"
+
+    // circular seek bar
+    implementation 'com.github.feeeei:CircleSeekbar:v1.1.2'
 }
