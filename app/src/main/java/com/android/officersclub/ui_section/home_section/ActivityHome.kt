@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.android.officersclub.R
 import com.android.officersclub.databinding.ActivityHomeBinding
 import com.android.officersclub.ui_section.base_section.BaseActivity
@@ -15,79 +16,34 @@ import com.android.officersclub.ui_section.home_section.home_section.FragmentHom
 import com.android.officersclub.ui_section.home_section.profile_section.FragmentProfile
 import com.android.officersclub.ui_section.home_section.support_section.FragmentSupport
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_home.*
 import java.util.ArrayList
 
-class ActivityHome : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
-    androidx.viewpager.widget.ViewPager.OnPageChangeListener,View.OnClickListener
-{
+class ActivityHome : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var mActivityHomeBinding: ActivityHomeBinding
-    private var previousPosition=-1
-    private var fragments: ArrayList<Fragment>? = null// used for ViewPager adapter
-    private lateinit var mHomeAdapter:HomeTabAdapter
-
-    private lateinit var mPagertabs: androidx.viewpager.widget.ViewPager
+    private var mFragments: ArrayList<Fragment>? = null// used for ViewPager adapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mActivityHomeBinding=DataBindingUtil.setContentView(this,R.layout.activity_home)
-        if(supportActionBar !=null){
+        mActivityHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
-        mPagertabs=findViewById(R.id.home_pager_tabs)
-        fragments = ArrayList(4)
-        fragments!!.add(0, FragmentSupport())
-        fragments!!.add(1, FragmentHome())
+        val fragments: ArrayList<androidx.fragment.app.Fragment> =  ArrayList(4)
+        fragments!!.add(0, FragmentHome())
+        fragments!!.add(1, FragmentBooking())
         fragments!!.add(2, FragmentProfile())
         fragments!!.add(3, FragmentSupport())
-        mHomeAdapter= HomeTabAdapter(supportFragmentManager, fragments!!)
-        //mActivityHomeBinding.homePagerTabs.adapter=mHomeAdapter
-        //mActivityHomeBinding.homePagerTabs.addOnPageChangeListener(this)
-        mPagertabs.adapter=mHomeAdapter
-        mPagertabs.addOnPageChangeListener(this)
-        mActivityHomeBinding.homeBtmNav.onNavigationItemSelectedListener = this
+        val mHomeAdapter = HomeTabAdapter(supportFragmentManager, fragments!!)
+        main_view_pager.adapter = mHomeAdapter
+        bottomNavigationView.background = null
+        bottomNavigationView.menu.getItem(2).isEnabled = false
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        var position=0
-        when(item.itemId){
-            R.id.i_home -> {
-                position = 0
-            }
-            R.id.i_booking -> {
-                position = 1
-            }
-            R.id.i_profile -> {
-                position = 2
-            }
-            R.id.i_support -> {
-                position = 3
-            }
-            R.id.i_add -> {
-                return false
-            }
-        }
-        if(previousPosition!=position){
-            mPagertabs.setCurrentItem(position, false)
-            previousPosition=position
-        }
         return true
     }
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-    }
 
-    override fun onPageSelected(position: Int) {
-        var positionItem=position
-        if(position>=2){
-            positionItem=position+1
-        }
-        mActivityHomeBinding.homeBtmNav.currentItem=positionItem
-    }
-
-    override fun onPageScrollStateChanged(state: Int) {
-    }
-
-    override fun onClick(p0: View?) {
-
-    }
 }

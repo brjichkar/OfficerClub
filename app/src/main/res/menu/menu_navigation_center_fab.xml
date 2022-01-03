@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/i_add"
-        android:title="Add" />
+        android:title="" />
     <item
         android:id="@+id/i_profile"
         android:icon="@drawable/ic_user"
