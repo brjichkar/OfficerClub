@@ -21,7 +21,7 @@ class ActivitySplash : AppCompatActivity() {
      * 	@Usage	  : Decide which screen for to show next.
      */
     private fun moveToNextSection(){
-        val mainActIntent = Intent(this, ActivityHome::class.java)
+        val mainActIntent = Intent(this, ActivityLogin::class.java)
         startActivity(mainActIntent)
         finish()
     }

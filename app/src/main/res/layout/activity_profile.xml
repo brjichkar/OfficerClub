@@ -6,23 +6,27 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_14sdp"
         android:background="@color/white"
         tools:context=".ui_section.profile_section.ActivityProfile">
+        <TextView
+            android:id="@+id/tv_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/complete"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/page_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/complete"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp" />
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_below="@id/tv_profile">
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_10sdp"
             android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
@@ -59,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/page_info"
             android:layout_above="@id/il_verify"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_margin="@dimen/_10sdp"
             android:scrollbars="none">
 
             <LinearLayout

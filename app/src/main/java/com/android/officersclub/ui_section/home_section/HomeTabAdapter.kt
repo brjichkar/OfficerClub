@@ -2,6 +2,7 @@ package com.android.officersclub.ui_section.home_section
 
 import java.util.*
 
+
 class HomeTabAdapter(fm: androidx.fragment.app.FragmentManager?, fragments: ArrayList<androidx.fragment.app.Fragment>) : androidx.fragment.app.FragmentPagerAdapter(
     fm!!
 ) {
@@ -18,4 +19,5 @@ class HomeTabAdapter(fm: androidx.fragment.app.FragmentManager?, fragments: Arra
     override fun getItemPosition(`object`: Any): Int {
         return POSITION_NONE
     }
+
 }
