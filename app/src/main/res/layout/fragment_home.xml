@@ -7,116 +7,176 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui_section.home_section.home_section.FragmentHome">
 
-    <RelativeLayout
-        android:id="@+id/rl_headers"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="none"
         >
-
-        <ImageView
-            android:id="@+id/iv_qr"
-            android:layout_width="@dimen/_22sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentStart="true"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:src="@drawable/qr_black" />
-        <ImageView
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/oc_icons"/>
-
-        <ImageView
-            android:id="@+id/iv_notification"
-            android:layout_width="@dimen/_22sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:src="@drawable/ic_notification" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_240sdp"
-        android:orientation="vertical"
-        android:background="@drawable/bottom_rounded_squre">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Congratulations Julia!"
-            android:textColor="@color/white"
-            android:padding="@dimen/_10sdp"
-            android:textSize="@dimen/_16ssp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="You have been upper than 76% Users this week"
-            android:textColor="@color/white"
-            android:padding="@dimen/_5sdp"
-            android:textSize="@dimen/_13ssp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:weightSum="2.0">
-
+            android:orientation="vertical"
+            >
             <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.0">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/iv_user_img"
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="@dimen/_70sdp"
+                android:id="@+id/rl_headers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_qr"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:src="@drawable/profile_icon" />
-                <io.feeeei.circleseekbar.CircleSeekBar
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:src="@drawable/qr_black" />
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_centerInParent="true"
-                    android:padding="3dp"
-                    app:wheel_can_touch="false"
-                    app:wheel_cur_process="30"
-                    app:wheel_pointer_radius="5dp"
-                    app:wheel_reached_color="@color/outer_circle"
-                    app:wheel_reached_width="8dp"
-                    app:wheel_unreached_color="@color/outer_unreacehd"
-                    app:wheel_unreached_width="8dp" />
-                <io.feeeei.circleseekbar.CircleSeekBar
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_centerInParent="true"
-                    android:padding="3dp"
-                    app:wheel_can_touch="false"
-                    app:wheel_cur_process="60"
-                    app:wheel_reached_color="@color/circle_blue"
-                    app:wheel_unreached_color="@color/small_unreached"
-                    app:wheel_pointer_radius="5dp"
-                    app:wheel_reached_width="8dp"
-                    app:wheel_unreached_width="8dp" />
+                    android:src="@drawable/oc_icons"/>
+
+                <ImageView
+                    android:id="@+id/iv_notification"
+                    android:layout_width="@dimen/_22sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_notification" />
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:orientation="vertical"
+                android:background="@drawable/bottom_rounded_squre">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Congratulations Julia!"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/_5sdp"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="You have been upper than 76% Users this week"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/_3sdp"
+                    android:textSize="@dimen/_11ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:weightSum="2.0">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/iv_user_img"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/profile_icon" />
+                        <io.feeeei.circleseekbar.CircleSeekBar
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_centerInParent="true"
+                            app:wheel_can_touch="false"
+                            app:wheel_cur_process="30"
+                            app:wheel_pointer_radius="5dp"
+                            app:wheel_reached_color="@color/outer_circle"
+                            app:wheel_reached_width="8dp"
+                            app:wheel_unreached_color="@color/outer_unreacehd"
+                            app:wheel_unreached_width="8dp" />
+                        <io.feeeei.circleseekbar.CircleSeekBar
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true"
+                            app:wheel_can_touch="false"
+                            app:wheel_cur_process="60"
+                            app:wheel_reached_color="@color/circle_blue"
+                            app:wheel_unreached_color="@color/small_unreached"
+                            app:wheel_pointer_radius="5dp"
+                            app:wheel_reached_width="8dp"
+                            app:wheel_unreached_width="8dp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="View full details"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/_2sdp"
+                    android:textSize="@dimen/_11ssp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="News"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_14ssp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facilities"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_14ssp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_facility"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Receipts"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:gravity="center_vertical"
+                android:layout_margin="@dimen/_10sdp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="Invoice"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="View full details"
-            android:textColor="@color/white"
-            android:padding="@dimen/_5sdp"
-            android:textSize="@dimen/_13ssp" />
-    </LinearLayout>
+    </ScrollView>
+
+
+
 
 </LinearLayout>

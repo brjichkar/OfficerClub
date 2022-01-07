@@ -4,25 +4,34 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
 import com.android.officersclub.R
 import com.android.officersclub.databinding.ActivityProfileBinding
 import com.android.officersclub.ui_section.base_section.BaseActivity
 import com.android.officersclub.ui_section.home_section.ActivityHome
+import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
+import com.android.officersclub.ui_section.profile_section.model.ProfileResponse
+import com.android.officersclub.ui_section.profile_section.mvp.ProfileMVP
+import com.android.officersclub.ui_section.profile_section.mvp.ProfilePresenterImplementer
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import java.util.*
 
 
-class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener {
+class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener,ProfileMVP.ProfileView {
     private lateinit var mActivityProfileBinding: ActivityProfileBinding
+    private lateinit var mPresenter: ProfileMVP.ProfilePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivityProfileBinding=DataBindingUtil.setContentView(this,R.layout.activity_profile)
+        mPresenter= ProfilePresenterImplementer(this)
         if(supportActionBar !=null){
             supportActionBar!!.hide()
         }
+
+
         mActivityProfileBinding.etBday.setOnClickListener {
             val now = Calendar.getInstance()
             val dpd = DatePickerDialog.newInstance(
@@ -55,6 +64,11 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener {
             startActivity(mainActIntent)
             finish()
         }
+
+        val req= ProfileRequest()
+        req.jsondata= ProfileRequest().Jsondata()
+        req.jsondata!!.userId="1"
+        mPresenter.onProfileButtonClicked(req)
     }
 
     override fun onDateSet(view: DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
@@ -74,5 +88,20 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener {
         } else {
             onError("Task Cancelled")
         }
+    }
+
+    override fun onProfileSuccessful(userDetails: ProfileResponse.Data.ProfileData) {
+        mActivityProfileBinding.apply {
+            etName.setText(userDetails.fname+" "+userDetails.mname+" "+userDetails.lname)
+            etEmail.setText(userDetails.email)
+            etBday.setText(userDetails.dob)
+            etAddress.setText(userDetails.mobile)
+            rbMale.isChecked=true
+        }
+
+    }
+
+    override fun onProfileFailed() {
+        onError("Something went wrong")
     }
 }

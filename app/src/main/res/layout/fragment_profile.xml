@@ -34,6 +34,7 @@
             app:cardUseCompatPadding="true">
 
             <RelativeLayout
+                android:id="@+id/rl_profile"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80sdp">
 
@@ -60,34 +61,36 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@id/iv_next"
                     android:layout_toRightOf="@id/iv_room_icon"
-                    android:layout_toLeftOf="@id/iv_next">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/tv_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_2sdp"
                         android:text="Bhushan Jichkar"
                         android:textColor="@color/black"
-                        android:gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_gravity="center_vertical"
-                        android:padding="@dimen/_2sdp"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_14ssp" />
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tv_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="9822620192"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:gravity="center_vertical"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_vertical"
-                        android:textColor="@color/grey_light"
                         android:padding="@dimen/_2sdp"
-                        android:textSize="@dimen/_12ssp" />
+                        android:text="9822620192"
+                        android:textColor="@color/grey_light"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </RelativeLayout>

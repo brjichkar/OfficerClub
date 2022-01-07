@@ -140,6 +140,7 @@
                     >
 
                     <RadioButton
+                        android:id="@+id/rb_male"
                         android:layout_width="0dp"
                         android:layout_weight="1.0"
                         android:layout_height="@dimen/_40sdp"
@@ -149,6 +150,7 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
                     <RadioButton
+                        android:id="@+id/rb_female"
                         android:layout_width="0dp"
                         android:layout_weight="1.0"
                         android:layout_height="@dimen/_40sdp"
@@ -172,7 +174,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
-                        android:hint="@string/address"
+                        android:hint="Enter mobile"
                         android:importantForAutofill="no"
                         android:inputType="textPostalAddress"
                         android:maxLength="100"

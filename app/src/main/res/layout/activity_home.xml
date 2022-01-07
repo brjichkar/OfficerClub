@@ -11,7 +11,7 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/cl_btm"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_76sdp"
+            android:layout_height="@dimen/_70sdp"
             android:layout_alignParentBottom="true"
             >
 
