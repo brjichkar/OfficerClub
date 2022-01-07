@@ -96,7 +96,12 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener,Profi
             etEmail.setText(userDetails.email)
             etBday.setText(userDetails.dob)
             etAddress.setText(userDetails.mobile)
-            rbMale.isChecked=true
+            if(userDetails.gender=="Male"){
+                rbMale.isChecked=true
+            }
+            else if(userDetails.gender=="Female"){
+                rbFemale.isChecked=true
+            }
         }
 
     }
