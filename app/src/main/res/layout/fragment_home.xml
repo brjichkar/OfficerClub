@@ -31,11 +31,12 @@
                     android:layout_centerInParent="true"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:src="@drawable/qr_black" />
+
                 <ImageView
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/oc_icons"/>
+                    android:src="@drawable/oc_icons" />
 
                 <ImageView
                     android:id="@+id/iv_notification"
@@ -126,13 +127,16 @@
                     android:textSize="@dimen/_11ssp" />
             </LinearLayout>
 
+            <include
+                layout="@layout/layout_row_membership"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="News"
                 android:textColor="@color/black"
                 android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_14ssp" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_news"

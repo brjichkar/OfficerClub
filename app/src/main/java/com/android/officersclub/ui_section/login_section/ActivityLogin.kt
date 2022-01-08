@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Html
 import androidx.databinding.DataBindingUtil
 import com.android.officersclub.R
+import com.android.officersclub.app_preferences.AppPreference
 import com.android.officersclub.databinding.ActivityLoginBinding
 import com.android.officersclub.ui_section.base_section.BaseActivity
 import com.android.officersclub.ui_section.login_section.model.LoginRequest
@@ -49,6 +50,14 @@ class ActivityLogin : BaseActivity(),LoginMVP.LoginView {
         mLoginPresenter.destroyView()
         super.onDestroy()
     }
+
+    override fun onFragmentAttached() {
+
+    }
+
+    override fun onFragmentDetached(tag: String?) {
+    }
+
     /**
      *  @Function : isDataValid()
      *  @params   : void
@@ -68,8 +77,12 @@ class ActivityLogin : BaseActivity(),LoginMVP.LoginView {
 
     override fun onLoginSuccessful(userDetails: LoginResponse.Data.ResponseData) {
         if(userDetails.mobile!=null && userDetails.profile!=null && userDetails.userId !=null){
+            val appPreference=AppPreference(this)
+            appPreference.userMobile=userDetails.mobile!!
+            appPreference.userProfile=userDetails.profile!!
+            appPreference.usersId=userDetails.userId!!
+
             val mainActIntent = Intent(this, ActivityOtp::class.java)
-            mainActIntent.putExtra("profile_status",userDetails.profile)
             startActivity(mainActIntent)
             finish()
         }

@@ -1,11 +1,19 @@
+/*
+ * Copyright (C) 2017 SmarterMe, Inc.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License
+ */
 
 package com.android.officersclub.ui_section.base_section;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -13,12 +21,15 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.android.officersclub.R;
+import com.android.officersclub.ui_section.base_section.BaseActivity;
 import com.android.officersclub.ui_section.utility_section.CommonUtils;
 import com.google.android.material.snackbar.Snackbar;
+
 
 public abstract class BaseFragment extends Fragment implements MvpView {
 
     private BaseActivity mActivity;
+    //    private Unbinder mUnBinder;
     private ProgressDialog mProgressDialog;
 
     @Override
@@ -32,6 +43,15 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         super.onViewCreated(view, savedInstanceState);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof BaseActivity) {
+            BaseActivity activity = (BaseActivity) context;
+            this.mActivity = activity;
+            activity.onFragmentAttached();
+        }
+    }
 
     @Override
     public void showLoading() {

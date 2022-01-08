@@ -12,12 +12,11 @@
             android:id="@+id/tv_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_5sdp"
             android:gravity="center"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
             android:text="@string/complete"
             android:textColor="@color/black"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -25,17 +24,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_below="@id/tv_profile">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:gravity="center"
                 android:text="@string/add_details"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13ssp" />
+                android:textSize="@dimen/_12ssp" />
         </LinearLayout>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -43,28 +44,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_submit"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_height="@dimen/_36sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/submit"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/page_info"
             android:layout_above="@id/il_verify"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_below="@id/page_info"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:scrollbars="none">
 
             <LinearLayout
@@ -74,10 +79,9 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_user_img"
-                    android:layout_width="@dimen/_140sdp"
-                    android:layout_height="@dimen/_140sdp"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:src="@drawable/profile_icon" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -100,7 +104,7 @@
                         android:minLines="1"
                         android:padding="@dimen/_10sdp"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -114,13 +118,12 @@
                         android:id="@+id/et_bday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:focusable="false"
                         android:gravity="start"
                         android:hint="@string/birthdate"
-                        android:focusable="false"
                         android:inputType="none"
                         android:longClickable="false"
-                        android:padding="@dimen/_10sdp"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -128,36 +131,35 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="@string/gender"
-                    android:textColor="@color/black"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:orientation="horizontal"
-                    android:weightSum="2.0"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    >
+                    android:weightSum="2.0">
 
                     <RadioButton
                         android:id="@+id/rb_male"
                         android:layout_width="0dp"
-                        android:layout_weight="1.0"
-                        android:layout_height="@dimen/_40sdp"
-                        android:text="Male"
+                        android:layout_height="@dimen/_36sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_weight="1.0"
                         android:background="@drawable/rounded_square_edt"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+                        android:text="Male"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RadioButton
                         android:id="@+id/rb_female"
                         android:layout_width="0dp"
-                        android:layout_weight="1.0"
-                        android:layout_height="@dimen/_40sdp"
-                        android:text="Female"
+                        android:layout_height="@dimen/_36sdp"
                         android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1.0"
                         android:background="@drawable/rounded_square_edt"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+                        android:text="Female"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 </RadioGroup>
 
@@ -180,9 +182,8 @@
                         android:maxLength="100"
                         android:maxLines="1"
                         android:minLines="1"
-                        android:padding="@dimen/_10sdp"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -204,9 +205,8 @@
                         android:maxLength="50"
                         android:maxLines="1"
                         android:minLines="1"
-                        android:padding="@dimen/_10sdp"
                         android:singleLine="true"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>

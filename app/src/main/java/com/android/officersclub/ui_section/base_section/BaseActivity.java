@@ -32,7 +32,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.net.URISyntaxException;
 
 
-public abstract class BaseActivity extends AppCompatActivity implements MvpView{
+public abstract class BaseActivity extends AppCompatActivity implements MvpView, BaseFragment.Callback{
 
     private ProgressDialog mProgressDialog;
     private Snackbar snackbar;

@@ -55,6 +55,13 @@ class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
         bottomNavigationView.setOnItemSelectedListener(this)
     }
 
+    override fun onFragmentAttached() {
+        
+    }
+
+    override fun onFragmentDetached(tag: String?) {
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var position=0
 
