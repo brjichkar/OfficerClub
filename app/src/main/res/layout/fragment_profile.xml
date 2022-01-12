@@ -80,7 +80,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_description"
+                        android:id="@+id/tv_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -166,6 +166,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rl_membership"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_55sdp"
                     android:paddingTop="@dimen/_5sdp"

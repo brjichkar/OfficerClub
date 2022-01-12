@@ -9,6 +9,7 @@ package com.android.officersclub.api_section
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import okio.Buffer
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -34,6 +35,7 @@ class ApiClient {
      * 	@Usage	  : Get okHttpClient client to trigger api call
      *  @Author   : 1276
      */
+
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(15, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)

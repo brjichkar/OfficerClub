@@ -98,7 +98,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:text="02-07-2021"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -129,7 +128,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="02-07-2021"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_11ssp"
                     android:textStyle="bold" />
@@ -147,30 +145,28 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:orientation="vertical"
                 android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_5sdp"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:text="Enrolled In"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_11ssp"
-                    />
+                    android:textSize="@dimen/_11ssp" />
+
                 <TextView
                     android:id="@+id/tv_enrolled"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:text="3 Sports"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="@dimen/_11ssp"
-                    />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -195,7 +191,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:text="Self+Spouse"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -206,7 +201,7 @@
 
         </RelativeLayout>
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_view_more"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
             android:gravity="center"

@@ -153,5 +153,11 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
             startActivity(mainActIntent)
             finish()
         }
+        else{
+            val req = ProfileRequest()
+            req.jsondata = ProfileRequest().Jsondata()
+            req.jsondata!!.userId = mAppPreference.usersId
+            mPresenter.onProfileButtonClicked(req)
+        }
     }
 }

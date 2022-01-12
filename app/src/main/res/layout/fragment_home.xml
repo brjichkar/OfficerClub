@@ -55,10 +55,11 @@
                 android:background="@drawable/bottom_rounded_squre">
 
                 <TextView
+                    android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Congratulations Julia!"
+                    android:text="Congratulations !"
                     android:textColor="@color/white"
                     android:padding="@dimen/_5sdp"
                     android:textSize="@dimen/_14ssp" />

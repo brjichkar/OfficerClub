@@ -9,6 +9,7 @@ package com.android.officersclub.api_section
 
 import com.android.officersclub.ui_section.home_section.home_section.model.FacilityResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.membership.MembershipModel
+import com.android.officersclub.ui_section.home_section.profile_section.family_section.model.FamilyDetailsReponse
 import com.android.officersclub.ui_section.login_section.model.LoginRequest
 import com.android.officersclub.ui_section.login_section.model.LoginResponse
 import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
@@ -57,6 +58,13 @@ interface ApiInterface {
     )
     @POST("Membership_Details")
     fun processMembership(@Body requests: ProfileRequest): Call<MembershipModel>
+
+    @Headers(value = [
+        "Accept: application/json",
+        "Content-type:application/json"]
+    )
+    @POST("Family_Details")
+    fun processFamily(@Body requests: ProfileRequest): Call<FamilyDetailsReponse>
 }
 
 

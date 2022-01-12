@@ -5,18 +5,28 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        tools:replace="android:allowBackup"
-        android:theme="@style/Theme.OfficersClub">
+        android:theme="@style/Theme.OfficersClub"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".ui_section.home_section.profile_section.membership_section.ActivityMembership"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui_section.home_section.profile_section.family_section.ActivityFamilyDetails"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui_section.home_section.ActivityHome"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui_section.profile_section.ActivityProfile"
             android:exported="false"

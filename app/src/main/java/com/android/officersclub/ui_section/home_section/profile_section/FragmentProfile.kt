@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.android.officersclub.R
 import com.android.officersclub.app_preferences.AppPreference
+import com.android.officersclub.ui_section.home_section.profile_section.family_section.ActivityFamilyDetails
+import com.android.officersclub.ui_section.home_section.profile_section.membership_section.ActivityMembership
 import com.android.officersclub.ui_section.login_section.ActivityLogin
 import com.android.officersclub.ui_section.otp_section.ActivityOtp
 import com.android.officersclub.ui_section.profile_section.ActivityProfile
@@ -48,6 +50,18 @@ class FragmentProfile : Fragment() {
             mainActIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(mainActIntent)
             requireActivity().finish()
+        }
+        tv_title.text = mAppPreference.userName
+        tv_mobile.text = mAppPreference.userMobile
+
+        rl_family.setOnClickListener {
+            val mainActIntent = Intent(requireContext(), ActivityFamilyDetails::class.java)
+            startActivity(mainActIntent)
+        }
+
+        rl_membership.setOnClickListener {
+            val mainActIntent = Intent(requireContext(), ActivityMembership::class.java)
+            startActivity(mainActIntent)
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.android.officersclub.ui_section.home_section
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -60,6 +61,13 @@ class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
     }
 
     override fun onFragmentDetached(tag: String?) {
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        for (fragment in supportFragmentManager.fragments) {
+            fragment.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
