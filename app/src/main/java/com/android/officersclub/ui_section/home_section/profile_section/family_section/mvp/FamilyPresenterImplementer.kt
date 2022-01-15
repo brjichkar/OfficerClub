@@ -3,9 +3,11 @@ package com.android.officersclub.ui_section.home_section.profile_section.family_
 import com.android.officersclub.R
 import com.android.officersclub.ui_section.home_section.profile_section.family_section.model.DataX
 import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
+import com.android.officersclub.ui_section.profile_section.model.photo.Data
+import java.io.File
 
-class FamilyPresenterImplementer(tempView: FamilyMVP.FamilyView): FamilyMVP.FamilyPresenter, FamilyMVP.FamilyModel.OnFamilyFinishedListener
-{
+class FamilyPresenterImplementer(tempView: FamilyMVP.FamilyView): FamilyMVP.FamilyPresenter, FamilyMVP.FamilyModel.OnFamilyFinishedListener,
+    FamilyMVP.FamilyModel.OnPhotoUpdateFinishedListener {
     private var mView: FamilyMVP.FamilyView? = tempView
     private var mModel: FamilyMVP.FamilyModel = FamilyModelImplementer()
 
@@ -30,6 +32,21 @@ class FamilyPresenterImplementer(tempView: FamilyMVP.FamilyView): FamilyMVP.Fami
         }
     }
 
+    override fun onPhotoUpload(userId: String, imageFile: File) {
+        if(mView!=null)
+        {
+            mView!!.hideKeyboard()
+            if(mView!!.isNetworkConnected){
+                mView!!.showLoading()
+                mModel.processPhotoUpdate(this,userId,imageFile)
+            }
+            else{
+                mView!!.hideLoading()
+                mView!!.onError(R.string.not_connected_to_internet)
+            }
+        }
+    }
+
     override fun onFamilyFinished(tempResponse: MutableList<DataX>) {
         if(mView!=null){
             mView!!.hideLoading()
@@ -38,6 +55,22 @@ class FamilyPresenterImplementer(tempView: FamilyMVP.FamilyView): FamilyMVP.Fami
     }
 
     override fun onFamilyFailure(warnings: String) {
+        mView!!.hideLoading()
+        if(warnings == ""){
+            mView!!.onError(R.string.some_error)
+        }else{
+            mView!!.onError(warnings)
+        }
+    }
+
+    override fun onPhotoUpdate(tempResponse: Data) {
+        if(mView!=null){
+            mView!!.hideLoading()
+            mView!!.onProfileImageUploadSuccess(tempResponse)
+        }
+    }
+
+    override fun onPhotoUpdateFailure(warnings: String) {
         mView!!.hideLoading()
         if(warnings == ""){
             mView!!.onError(R.string.some_error)

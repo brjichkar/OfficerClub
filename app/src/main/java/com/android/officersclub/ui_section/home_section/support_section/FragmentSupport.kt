@@ -33,12 +33,6 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.google.zxing.integration.android.IntentIntegrator
 
 
-
-
-
-
-
-
 class FragmentSupport : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

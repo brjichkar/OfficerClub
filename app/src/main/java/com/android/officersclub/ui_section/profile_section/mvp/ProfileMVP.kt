@@ -11,6 +11,8 @@ import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
 import com.android.officersclub.ui_section.profile_section.model.ProfileResponse
 import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateRequest
 import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateResponse
+import com.android.officersclub.ui_section.profile_section.model.photo.Data
+import java.io.File
 
 
 class ProfileMVP {
@@ -18,6 +20,7 @@ class ProfileMVP {
         fun onProfileSuccessful(userDetails: ProfileResponse.Data.ProfileData)
         fun onProfileFailed()
         fun onProfileUpdateSuccessful(tempResponse: ProfileUpdateResponse.Data)
+        fun onProfileImageUploadSuccess(tempResponse: Data)
     }
 
     interface ProfilePresenter {
@@ -25,6 +28,7 @@ class ProfileMVP {
         fun destroyView()
         fun onProfileButtonClicked(tempRequest: ProfileRequest)
         fun onProfileUpdate(tempRequest: ProfileUpdateRequest)
+        fun onPhotoUpload(userId:String,imageFile: File)
     }
 
     interface ProfileModel {
@@ -46,6 +50,16 @@ class ProfileMVP {
         interface OnProfileUpdateFinishedListener {
             fun onProfileUpdate(tempResponse: ProfileUpdateResponse.Data)
             fun onProfileUpdateFailure(warnings: String)
+        }
+
+        fun processPhotoUpdate(
+            onFinishedListener: OnPhotoUpdateFinishedListener,
+            userId:String,imageFile: File
+        )
+
+        interface OnPhotoUpdateFinishedListener {
+            fun onPhotoUpdate(tempResponse: Data)
+            fun onPhotoUpdateFailure(warnings: String)
         }
     }
 

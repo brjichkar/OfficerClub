@@ -15,10 +15,14 @@ import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
 import com.android.officersclub.ui_section.profile_section.model.ProfileResponse
 import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateRequest
 import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateResponse
+import com.android.officersclub.ui_section.profile_section.model.photo.Data
 import com.android.officersclub.ui_section.profile_section.mvp.ProfileMVP
 import com.android.officersclub.ui_section.profile_section.mvp.ProfilePresenterImplementer
+import com.bumptech.glide.Glide
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
+import kotlinx.android.synthetic.main.fragment_profile.*
+import java.io.File
 import java.util.*
 
 
@@ -42,6 +46,11 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
                 mNextEnabled = data.getBoolean("is_profile_complete")!!
             }
         }
+        Glide.with(this)
+            .load(mAppPreference.userImage)
+            .centerCrop()
+            .placeholder(R.drawable.profile_icon)
+            .into(mActivityProfileBinding.ivUserImg)
 
         mActivityProfileBinding.etBday.setOnClickListener {
             val now = Calendar.getInstance()
@@ -83,6 +92,12 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
             tempRequest.jsondata!!.mobile = mActivityProfileBinding.etAddress.text.toString()
             tempRequest.jsondata!!.email = mActivityProfileBinding.etEmail.text.toString()
             tempRequest.jsondata!!.dob = mActivityProfileBinding.etBday.text.toString()
+            if(mActivityProfileBinding.rbMale.isChecked){
+                tempRequest.jsondata!!.gender="Male"
+            }
+            if(mActivityProfileBinding.rbFemale.isChecked){
+                tempRequest.jsondata!!.gender="Female"
+            }
             mPresenter.onProfileUpdate(tempRequest)
         }
 
@@ -94,18 +109,23 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
 
     override fun onDateSet(view: DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
         mActivityProfileBinding.etBday.setText("" + dayOfMonth + "/" + (monthOfYear + 1) + "/" + year)
-        //showMessage("You picked the following date: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK) {
-            val uri: Uri = data?.data!!
-            mActivityProfileBinding.ivUserImg.setImageURI(uri)
-        } else if (resultCode == ImagePicker.RESULT_ERROR) {
-            onError(ImagePicker.getError(data))
-        } else {
-            onError("Task Cancelled")
+        when (resultCode) {
+            Activity.RESULT_OK -> {
+                val uri: Uri = data?.data!!
+                mActivityProfileBinding.ivUserImg.setImageURI(uri)
+                val imageFile: File = File(uri.path)
+                mPresenter.onPhotoUpload( mAppPreference.usersId,imageFile)
+            }
+            ImagePicker.RESULT_ERROR -> {
+                onError(ImagePicker.getError(data))
+            }
+            else -> {
+                onError("Task Cancelled")
+            }
         }
     }
 
@@ -119,7 +139,13 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
         mActivityProfileBinding.apply {
             mAppPreference.userName=userDetails.fname!!+ " " + userDetails.mname!!+ " " + userDetails.lname!!
             mAppPreference.userEmail=userDetails.email!!
+            mAppPreference.userImage=userDetails.imagePath!!
 
+            Glide.with(this@ActivityProfile)
+                .load(mAppPreference.userImage)
+                .centerCrop()
+                .placeholder(R.drawable.profile_icon)
+                .into(mActivityProfileBinding.ivUserImg)
 
             etName.setText(mAppPreference.userName.trim())
             etEmail.setText(userDetails.email!!.trim())
@@ -159,5 +185,13 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
             req.jsondata!!.userId = mAppPreference.usersId
             mPresenter.onProfileButtonClicked(req)
         }
+    }
+
+    override fun onProfileImageUploadSuccess(tempResponse: Data) {
+        val req = ProfileRequest()
+        req.jsondata = ProfileRequest().Jsondata()
+        req.jsondata!!.userId = mAppPreference.usersId
+        mPresenter.onProfileButtonClicked(req)
+        //onError("Image Updated successfully.")
     }
 }

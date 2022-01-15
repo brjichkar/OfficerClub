@@ -36,9 +36,9 @@
             <RelativeLayout
                 android:id="@+id/rl_profile"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_66sdp">
+                android:layout_height="@dimen/_80sdp">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_room_icon"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"

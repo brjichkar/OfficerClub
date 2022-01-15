@@ -50,7 +50,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
+                android:layout_height="@dimen/_180sdp"
                 android:orientation="vertical"
                 android:background="@drawable/bottom_rounded_squre">
 
@@ -65,10 +65,10 @@
                     android:textSize="@dimen/_14ssp" />
 
                 <TextView
+                    android:id="@+id/tv_short_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="You have been upper than 76% Users this week"
                     android:textColor="@color/white"
                     android:padding="@dimen/_3sdp"
                     android:textSize="@dimen/_11ssp" />
@@ -78,14 +78,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:weightSum="2.0">
 
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1.0">
+                        android:layout_weight="0.8">
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/iv_user_img"
                             android:layout_width="@dimen/_60sdp"
@@ -104,28 +104,57 @@
                             app:wheel_reached_width="8dp"
                             app:wheel_unreached_color="@color/outer_unreacehd"
                             app:wheel_unreached_width="8dp" />
+
                         <io.feeeei.circleseekbar.CircleSeekBar
+                            android:id="@+id/iv_image"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_centerInParent="true"
                             app:wheel_can_touch="false"
                             app:wheel_cur_process="60"
-                            app:wheel_reached_color="@color/circle_blue"
-                            app:wheel_unreached_color="@color/small_unreached"
                             app:wheel_pointer_radius="5dp"
+                            app:wheel_reached_color="@color/circle_blue"
                             app:wheel_reached_width="8dp"
+                            app:wheel_unreached_color="@color/small_unreached"
                             app:wheel_unreached_width="8dp" />
                     </RelativeLayout>
-
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:gravity="center|start"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_full_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_11ssp"
+                            android:gravity="start"
+                            />
+                        <TextView
+                            android:id="@+id/tv_dob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_11ssp"
+                            />
+                        <TextView
+                            android:id="@+id/tv_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_11ssp"
+                            />
+                        <TextView
+                            android:id="@+id/tv_mobile_home"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_11ssp"
+                            />
+                    </LinearLayout>
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="View full details"
-                    android:textColor="@color/white"
-                    android:padding="@dimen/_2sdp"
-                    android:textSize="@dimen/_11ssp" />
             </LinearLayout>
 
             <include
@@ -134,13 +163,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="News"
+                android:text="Gallery"
                 android:textColor="@color/black"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_14ssp" />
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_news"
+                android:id="@+id/rv_gallery"
                 android:layout_width="match_parent"
                 android:padding="@dimen/_5sdp"
                 android:layout_height="match_parent" />
@@ -162,11 +191,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="video"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_14ssp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_video"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Receipts"
                 android:textColor="@color/black"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_14ssp"
+                android:visibility="gone"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_login"
@@ -177,6 +220,7 @@
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="Invoice"
+                android:visibility="gone"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
     </ScrollView>

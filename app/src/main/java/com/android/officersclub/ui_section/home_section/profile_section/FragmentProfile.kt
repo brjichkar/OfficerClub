@@ -15,6 +15,8 @@ import com.android.officersclub.ui_section.home_section.profile_section.membersh
 import com.android.officersclub.ui_section.login_section.ActivityLogin
 import com.android.officersclub.ui_section.otp_section.ActivityOtp
 import com.android.officersclub.ui_section.profile_section.ActivityProfile
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class FragmentProfile : Fragment() {
@@ -28,15 +30,7 @@ class FragmentProfile : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val tempView= inflater.inflate(R.layout.fragment_profile, container, false)
-        val rlProfile:RelativeLayout= tempView.findViewById(R.id.rl_profile)
         mAppPreference= AppPreference(requireContext())
-
-        rlProfile.setOnClickListener {
-            val mainActIntent = Intent(context, ActivityProfile::class.java)
-            startActivity(mainActIntent)
-        }
-
-
         return tempView
     }
 
@@ -63,5 +57,16 @@ class FragmentProfile : Fragment() {
             val mainActIntent = Intent(requireContext(), ActivityMembership::class.java)
             startActivity(mainActIntent)
         }
+
+        rl_profile.setOnClickListener {
+            val mainActIntent = Intent(context, ActivityProfile::class.java)
+            startActivity(mainActIntent)
+        }
+
+        Glide.with(requireActivity())
+            .load(mAppPreference.userImage)
+            .centerCrop()
+            .placeholder(R.drawable.profile_icon)
+            .into(iv_room_icon)
     }
 }

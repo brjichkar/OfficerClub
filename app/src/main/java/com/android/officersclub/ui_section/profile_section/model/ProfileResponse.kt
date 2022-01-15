@@ -105,6 +105,10 @@ class ProfileResponse {
             @SerializedName("department")
             @Expose
             var department: String? = null
+
+            @SerializedName("image_path")
+            @Expose
+            var imagePath: String? = null
         }
     }
 }

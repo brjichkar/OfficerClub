@@ -231,9 +231,10 @@
                         android:layout_height="@dimen/_40sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        app:tint="@color/black"
+                        android:visibility="gone"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:src="@drawable/ic_next_section" />
+                        android:src="@drawable/ic_next_section"
+                        app:tint="@color/black" />
                 </RelativeLayout>
 
                 <RelativeLayout

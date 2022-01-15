@@ -11,11 +11,12 @@
         android:layout_height="wrap_content"
         >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_news_icon"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_80sdp"
-            android:src="@drawable/oc_icons"/>
+            android:paddingTop="@dimen/_5sdp"
+            android:src="@drawable/oc_icons" />
 
         <TextView
             android:id="@+id/tv_title"

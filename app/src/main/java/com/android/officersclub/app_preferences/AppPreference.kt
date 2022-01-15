@@ -87,6 +87,13 @@ class AppPreference(context: Context)  {
             mEditor.commit()
         }
 
+    var userImage: String
+        get() =  mSharedPreferences.getString("userImage", "")!!
+        set(value) {
+            mEditor.putString("userImage", value)
+            mEditor.commit()
+        }
+
 
     var totalMaleChildren: Int
         get() =  mSharedPreferences.getInt("totalMaleChildren", 0)

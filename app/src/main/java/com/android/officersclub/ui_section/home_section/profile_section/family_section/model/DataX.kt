@@ -5,5 +5,6 @@ data class DataX(
     val mobile: String,
     val name: String,
     val relation: String,
-    val user_relative_id: String
+    val user_relative_id: String,
+    val image_path:String
 )

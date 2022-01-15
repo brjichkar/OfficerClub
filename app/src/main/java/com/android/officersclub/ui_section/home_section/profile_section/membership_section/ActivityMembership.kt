@@ -75,6 +75,13 @@ class ActivityMembership : BaseActivity() , HomeMVP.HomeView {
         }
     }
 
+    override fun onGallerySuccess(tempResponse: MutableList<com.android.officersclub.ui_section.home_section.home_section.model.gallery.DataX>) {
+
+    }
+
+    override fun onVideosSuccess(tempResponse: MutableList<com.android.officersclub.ui_section.home_section.home_section.model.videos.DataX>) {
+    }
+
     fun openDialog(enrolledItems: Array<String?>) {
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this)
         val rowList: View = layoutInflater.inflate(R.layout.latout_list_in_alert, null)
