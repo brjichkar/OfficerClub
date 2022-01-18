@@ -5,8 +5,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -16,9 +17,13 @@
         android:theme="@style/Theme.OfficersClub"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ui_section.home_section.booking_section.details.ActivityDetails"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui_section.home_section.profile_section.membership_section.ActivityMembership"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui_section.home_section.profile_section.family_section.ActivityFamilyDetails"
             android:exported="false"

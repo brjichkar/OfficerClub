@@ -17,7 +17,7 @@ class FamilyMVP {
         fun attachView(tempView: FamilyView)
         fun destroyView()
         fun onFamilyRequest(tempRequest: ProfileRequest)
-        fun onPhotoUpload(userId:String,imageFile: File)
+        fun onPhotoUpload(userId:String,relativeId: String,imageFile: File)
     }
 
     interface FamilyModel {
@@ -33,7 +33,7 @@ class FamilyMVP {
 
         fun processPhotoUpdate(
             onFinishedListener: OnPhotoUpdateFinishedListener,
-            userId:String,imageFile: File
+            userId:String,relativeId: String,imageFile: File
         )
 
         interface OnPhotoUpdateFinishedListener {

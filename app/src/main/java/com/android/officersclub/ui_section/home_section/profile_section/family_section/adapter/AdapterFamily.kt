@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.android.officersclub.R
 import com.android.officersclub.ui_section.home_section.profile_section.family_section.model.DataX
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.row_family_member.view.*
 
@@ -52,6 +53,8 @@ class AdapterFamily (private var tempList: MutableList<DataX>, private var mCont
             Glide.with(mContext)
                 .load(sampleDataModel.image_path)
                 .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .placeholder(R.drawable.profile_icon)
                 .into(itemView.iv_room_icon)
         }

@@ -7,7 +7,6 @@ import com.android.officersclub.ui_section.profile_section.model.ProfileResponse
 import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateRequest
 import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateResponse
 import com.android.officersclub.ui_section.profile_section.model.photo.PhotoResponse
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -85,9 +84,9 @@ class ProfileModelImplementer : ProfileMVP.ProfileModel {
         userId:String,imageFile: File
     ) {
         val imageRequestBody= RequestBody.create("image/*".toMediaTypeOrNull(), imageFile)
-        val part= MultipartBody.Part.createFormData("file",imageFile.name,imageRequestBody)
+        val part= MultipartBody.Part.createFormData("profileimage",imageFile.name,imageRequestBody)
         try {
-            val call = mApiInterfaceService.sendProfilePicTOServer(part, userId)
+            val call = mApiInterfaceService.sendProfilePicTOServer(part, userId.toInt())
             call.enqueue(object: Callback<PhotoResponse> {
 
                 override fun onResponse(call: Call<PhotoResponse>, response: Response<PhotoResponse>) {

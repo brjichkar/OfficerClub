@@ -14,6 +14,7 @@ import android.app.Dialog
 import android.graphics.Color
 import android.widget.ImageButton
 import android.widget.ImageView
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class AdapterGallery (private var historyList: MutableList<DataX>, private var mContext: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterGallery.NewsItemAdapter>()
 {
@@ -24,6 +25,8 @@ class AdapterGallery (private var historyList: MutableList<DataX>, private var m
             Glide.with(receivedContext)
                 .load(sampleDataModel.image_path)
                 .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .placeholder(R.drawable.profile_icon)
                 .into(itemView.iv_news_icon)
             itemView.iv_news_icon.setOnClickListener {
@@ -62,6 +65,8 @@ class AdapterGallery (private var historyList: MutableList<DataX>, private var m
         Glide.with(mContext)
             .load(imagePath)
             .centerCrop()
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
             .placeholder(R.drawable.oc_icons)
             .into(bigImg)
 

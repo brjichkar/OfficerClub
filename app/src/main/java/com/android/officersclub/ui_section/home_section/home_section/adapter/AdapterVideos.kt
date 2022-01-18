@@ -15,6 +15,7 @@ import android.R.id
 
 import android.content.Intent
 import android.net.Uri
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 
 class AdapterVideos (private var historyList: MutableList<DataX>, private var mContext: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterVideos.NewsItemAdapter>()
@@ -26,16 +27,21 @@ class AdapterVideos (private var historyList: MutableList<DataX>, private var mC
             Glide.with(receivedContext)
                 .load(sampleDataModel.image_path)
                 .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .placeholder(R.drawable.profile_icon)
                 .into(itemView.iv_news_icon)
             itemView.iv_news_icon.setOnClickListener {
-                val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:${sampleDataModel.link}"))
-                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=${sampleDataModel.link}"))
+
+                val webIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(sampleDataModel.link)
+                )
                 try {
-                    mContext.startActivity(appIntent)
-                } catch (ex: ActivityNotFoundException) {
                     mContext.startActivity(webIntent)
+                } catch (ex: ActivityNotFoundException) {
                 }
+
             }
         }
     }

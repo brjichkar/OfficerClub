@@ -19,6 +19,7 @@ import com.android.officersclub.ui_section.profile_section.model.photo.Data
 import com.android.officersclub.ui_section.profile_section.mvp.ProfileMVP
 import com.android.officersclub.ui_section.profile_section.mvp.ProfilePresenterImplementer
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -49,6 +50,8 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
         Glide.with(this)
             .load(mAppPreference.userImage)
             .centerCrop()
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
             .placeholder(R.drawable.profile_icon)
             .into(mActivityProfileBinding.ivUserImg)
 
@@ -144,6 +147,8 @@ class ActivityProfile : BaseActivity(), DatePickerDialog.OnDateSetListener, Prof
             Glide.with(this@ActivityProfile)
                 .load(mAppPreference.userImage)
                 .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .placeholder(R.drawable.profile_icon)
                 .into(mActivityProfileBinding.ivUserImg)
 

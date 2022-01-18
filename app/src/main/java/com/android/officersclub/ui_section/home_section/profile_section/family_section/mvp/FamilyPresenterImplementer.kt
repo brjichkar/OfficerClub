@@ -32,13 +32,13 @@ class FamilyPresenterImplementer(tempView: FamilyMVP.FamilyView): FamilyMVP.Fami
         }
     }
 
-    override fun onPhotoUpload(userId: String, imageFile: File) {
+    override fun onPhotoUpload(userId: String,relativeId: String, imageFile: File) {
         if(mView!=null)
         {
             mView!!.hideKeyboard()
             if(mView!!.isNetworkConnected){
                 mView!!.showLoading()
-                mModel.processPhotoUpdate(this,userId,imageFile)
+                mModel.processPhotoUpdate(this,userId,relativeId,imageFile)
             }
             else{
                 mView!!.hideLoading()

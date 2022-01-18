@@ -16,6 +16,7 @@ import com.android.officersclub.ui_section.login_section.ActivityLogin
 import com.android.officersclub.ui_section.otp_section.ActivityOtp
 import com.android.officersclub.ui_section.profile_section.ActivityProfile
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -66,6 +67,8 @@ class FragmentProfile : Fragment() {
         Glide.with(requireActivity())
             .load(mAppPreference.userImage)
             .centerCrop()
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
             .placeholder(R.drawable.profile_icon)
             .into(iv_room_icon)
     }

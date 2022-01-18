@@ -7,6 +7,8 @@
 
 package com.android.officersclub.api_section
 
+import com.android.officersclub.ui_section.home_section.booking_section.details.model.DetailsRequest
+import com.android.officersclub.ui_section.home_section.booking_section.details.model.DetailsResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.FacilityResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.gallery.GalleryResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.membership.MembershipModel
@@ -20,9 +22,7 @@ import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateRe
 import com.android.officersclub.ui_section.profile_section.model.ProfileUpdateResponse
 import com.android.officersclub.ui_section.profile_section.model.photo.PhotoResponse
 import okhttp3.MultipartBody
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiInterface {
@@ -92,8 +92,20 @@ interface ApiInterface {
      *  @Author   : 1276
      */
     @Multipart
-    @POST("Image/Image_profile")
-    fun sendProfilePicTOServer(@Part imgFile: MultipartBody.Part,@Body requests: String): Call<PhotoResponse>
+    @POST("Image/ProfileImage")
+    fun sendProfilePicTOServer(@Part profileimage: MultipartBody.Part, @Part("user_id") name: Int): Call<PhotoResponse>
+
+
+    @Multipart
+    @POST("Image/FamilyImage")
+    fun sendProfilePicTOServerFamily(@Part profileimage: MultipartBody.Part, @Part("user_id") name:Int,@Part("user_relative_id") user_relative_id:Int): Call<PhotoResponse>
+
+    @Headers(value = [
+        "Accept: application/json",
+        "Content-type:application/json"]
+    )
+    @POST("Facility_Detail")
+    fun processDetails(@Body requests: DetailsRequest): Call<DetailsResponse>
 
 }
 

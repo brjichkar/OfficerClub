@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.android.officersclub.R
 import com.bumptech.glide.Glide
 import com.android.officersclub.ui_section.home_section.home_section.model.DataX
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.layout_news_row.view.*
 
 class AdapterFacilities (private var facilityList: MutableList<DataX>, private var mContext: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterFacilities.FacilityAdapter>()
@@ -15,6 +16,13 @@ class AdapterFacilities (private var facilityList: MutableList<DataX>, private v
     inner class FacilityAdapter(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
         fun setDataToView(sampleDataModel: DataX, receivedContext: Context){
             itemView.tv_title.text=sampleDataModel.name
+            Glide.with(receivedContext)
+                .load(sampleDataModel.image_path)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .placeholder(R.drawable.profile_icon)
+                .into(itemView.iv_news_icon)
         }
     }
 

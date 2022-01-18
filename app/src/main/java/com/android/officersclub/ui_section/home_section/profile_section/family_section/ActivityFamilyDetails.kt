@@ -30,7 +30,7 @@ class ActivityFamilyDetails : BaseActivity(), FamilyMVP.FamilyView {
     private lateinit var mAdapter: AdapterFamily
     private lateinit var mPresenter: FamilyMVP.FamilyPresenter
     private lateinit var mAppPreference:AppPreference
-    private var tempImagePath = ""
+    private var familyMemberId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +41,7 @@ class ActivityFamilyDetails : BaseActivity(), FamilyMVP.FamilyView {
 
         mAdapter= AdapterFamily(mList,this,object : AdapterFamily.OnItemClickListener {
             override fun onItemClick(item: DataX?) {
+                familyMemberId=item!!.user_relative_id
                 ImagePicker.with(this@ActivityFamilyDetails)
                     .crop().compress(1024)
                     .maxResultSize(
@@ -92,7 +93,7 @@ class ActivityFamilyDetails : BaseActivity(), FamilyMVP.FamilyView {
             Activity.RESULT_OK -> {
                 val uri: Uri = data?.data!!
                 val imageFile: File = File(uri.path)
-                mPresenter.onPhotoUpload(mAppPreference.usersId,imageFile)
+                mPresenter.onPhotoUpload(mAppPreference.usersId,familyMemberId,imageFile)
             }
             ImagePicker.RESULT_ERROR -> {
                 onError(ImagePicker.getError(data))
@@ -115,5 +116,9 @@ class ActivityFamilyDetails : BaseActivity(), FamilyMVP.FamilyView {
 
     override fun onProfileImageUploadSuccess(tempResponse: Data) {
         onError("Image upload success")
+        val req = ProfileRequest()
+        req.jsondata = ProfileRequest().Jsondata()
+        req.jsondata!!.userId = mAppPreference.usersId
+        mPresenter.onFamilyRequest(req)
     }
 }

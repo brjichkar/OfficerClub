@@ -50,12 +50,13 @@ class FamilyModelImplementer: FamilyMVP.FamilyModel {
     override fun processPhotoUpdate(
         onFinishedListener: FamilyMVP.FamilyModel.OnPhotoUpdateFinishedListener,
         userId: String,
+        relativeId: String,
         imageFile: File
     ) {
         val imageRequestBody= RequestBody.create("image/*".toMediaTypeOrNull(), imageFile)
-        val part= MultipartBody.Part.createFormData("file",imageFile.name,imageRequestBody)
+        val part= MultipartBody.Part.createFormData("profileimage",imageFile.name,imageRequestBody)
         try {
-            val call = mApiInterfaceService.sendProfilePicTOServer(part, userId)
+            val call = mApiInterfaceService.sendProfilePicTOServerFamily(part, userId.toInt(),relativeId.toInt())
             call.enqueue(object: Callback<PhotoResponse> {
 
                 override fun onResponse(call: Call<PhotoResponse>, response: Response<PhotoResponse>) {
