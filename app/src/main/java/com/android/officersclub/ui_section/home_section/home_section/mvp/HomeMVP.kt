@@ -12,6 +12,7 @@ class HomeMVP {
         fun onMembershipSuccess(tempResponse:DataX)
         fun onGallerySuccess(tempResponse:MutableList<com.android.officersclub.ui_section.home_section.home_section.model.gallery.DataX>)
         fun onVideosSuccess(tempResponse:MutableList<com.android.officersclub.ui_section.home_section.home_section.model.videos.DataX>)
+        fun onServicesSuccess(tempResponse:MutableList<com.android.officersclub.ui_section.home_section.booking_section.model.services.DataX>)
     }
 
     interface HomePresenter {
@@ -21,6 +22,7 @@ class HomeMVP {
         fun onMembershipRequest(tempRequest: ProfileRequest)
         fun onGalleryRequest(tempRequest: ProfileRequest)
         fun onVideosRequest(tempRequest: ProfileRequest)
+        fun onServicesRequest(tempRequest: ProfileRequest)
     }
 
     interface HomeModel {
@@ -62,6 +64,16 @@ class HomeMVP {
         interface OnVideoFinishedListener {
             fun onVideoSuccess(tempResponse:MutableList<com.android.officersclub.ui_section.home_section.home_section.model.videos.DataX>)
             fun onVideoFailure(warnings: String)
+        }
+
+        fun processServices(
+            onServiceListener: OnServicesListener,
+            tempRequest: ProfileRequest
+        )
+
+        interface OnServicesListener {
+            fun onServicesSuccess(tempResponse:MutableList<com.android.officersclub.ui_section.home_section.booking_section.model.services.DataX>)
+            fun onServicesFailure(warnings: String)
         }
     }
 

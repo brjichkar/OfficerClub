@@ -82,6 +82,10 @@ class ActivityMembership : BaseActivity() , HomeMVP.HomeView {
     override fun onVideosSuccess(tempResponse: MutableList<com.android.officersclub.ui_section.home_section.home_section.model.videos.DataX>) {
     }
 
+    override fun onServicesSuccess(tempResponse: MutableList<com.android.officersclub.ui_section.home_section.booking_section.model.services.DataX>) {
+
+    }
+
     fun openDialog(enrolledItems: Array<String?>) {
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this)
         val rowList: View = layoutInflater.inflate(R.layout.latout_list_in_alert, null)

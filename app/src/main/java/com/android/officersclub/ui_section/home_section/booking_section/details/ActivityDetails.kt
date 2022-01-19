@@ -106,4 +106,11 @@ class ActivityDetails : BaseActivity(),ClubDetailsMVP.DetailsView {
     override fun onDetailsFailed() {
         finish()
     }
+
+    override fun onServicesReceived(tempResponse: com.android.officersclub.ui_section.home_section.booking_section.details.model.serreq.DataX) {
+
+    }
+
+    override fun onServicesFailed() {
+    }
 }

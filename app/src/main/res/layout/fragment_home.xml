@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-            <RelativeLayout
+           <!-- <RelativeLayout
                 android:id="@+id/rl_headers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,6 +29,7 @@
                     android:layout_height="@dimen/_22sdp"
                     android:layout_alignParentStart="true"
                     android:layout_centerInParent="true"
+                    android:visibility="gone"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:src="@drawable/qr_black" />
 
@@ -45,8 +46,9 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/_10sdp"
+                    android:visibility="gone"
                     android:src="@drawable/ic_notification" />
-            </RelativeLayout>
+            </RelativeLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"

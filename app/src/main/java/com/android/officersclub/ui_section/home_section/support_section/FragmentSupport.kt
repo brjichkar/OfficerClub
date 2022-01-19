@@ -15,7 +15,14 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.annotation.Nullable
+import com.android.officersclub.app_preferences.AppPreference
 import com.android.officersclub.ui_section.base_section.BaseFragment
+import com.android.officersclub.ui_section.home_section.support_section.model.req.Jsondata
+import com.android.officersclub.ui_section.home_section.support_section.model.req.RatingRequest
+import com.android.officersclub.ui_section.home_section.support_section.model.resps.RatingResponses
+import com.android.officersclub.ui_section.home_section.support_section.mvp.SupportsMVP
+import com.android.officersclub.ui_section.home_section.support_section.mvp.SupportsPresenterImplementer
+import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
 import com.google.zxing.Result
 import com.hsalf.smilerating.SmileRating
 import com.hsalf.smileyrating.SmileyRating
@@ -31,9 +38,15 @@ import com.karumi.dexter.listener.single.PermissionListener
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.listener.PermissionRequest
 import com.google.zxing.integration.android.IntentIntegrator
+import android.content.ActivityNotFoundException
 
 
-class FragmentSupport : BaseFragment() {
+
+
+
+class FragmentSupport : BaseFragment(), SupportsMVP.SupportsView {
+    private lateinit var mAppPreference: AppPreference
+    private lateinit var mPresenter: SupportsMVP.SupportsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +56,19 @@ class FragmentSupport : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        mAppPreference= AppPreference(requireContext())
+        mPresenter=SupportsPresenterImplementer(this)
         return inflater.inflate(R.layout.fragment_support, container, false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mPresenter.attachView(this)
+    }
+
+    override fun onDestroy() {
+        mPresenter.destroyView()
+        super.onDestroy()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -89,7 +114,7 @@ class FragmentSupport : BaseFragment() {
                 .withPermission(Manifest.permission.CALL_PHONE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "9822620192"))
+                        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "8087027127"))
                         startActivity(intent)
                     }
 
@@ -116,7 +141,27 @@ class FragmentSupport : BaseFragment() {
                 dialog.cancel()
                 val cleanRating : SmileyRating =customLayout.findViewById(R.id.tv_clean)
                 val trainingRating: SmileyRating =customLayout.findViewById(R.id.tv_training)
-                onError("Cleanliness - "+cleanRating.selectedSmiley.rating+" and Training - "+trainingRating.selectedSmiley.rating)
+                //onError("Cleanliness - "+cleanRating.selectedSmiley.rating+" and Training - "+trainingRating.selectedSmiley.rating)
+
+                var cleans=""
+                var trains=""
+
+                if(cleanRating.selectedSmiley.rating==-1){
+                    cleans="0"
+                }
+                else{
+                    cleans=""+cleanRating.selectedSmiley.rating
+                }
+
+                if(trainingRating.selectedSmiley.rating==-1){
+                    trains="0"
+                }
+                else{
+                    trains=""+trainingRating.selectedSmiley.rating
+                }
+
+                val req = RatingRequest(Jsondata(cleans,trains,mAppPreference.usersId))
+                mPresenter.onSupportsRequest(req)
             })
 
         val alert: AlertDialog = alertDialog.create()
@@ -139,11 +184,23 @@ class FragmentSupport : BaseFragment() {
             } else {
                 // if the intentResult is not null we'll set
                 // the content and format of scan message
-               onError(intentResult.contents)
+               //onError(intentResult.contents)
+                try {
+                    val webpage = Uri.parse(intentResult.contents)
+                    val myIntent = Intent(Intent.ACTION_VIEW, webpage)
+                    startActivity(myIntent)
+                } catch (e: ActivityNotFoundException) {
+                    onError("Error in scanning")
+                    e.printStackTrace()
+                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    override fun onSupportsSuccessful(tempResponse: RatingResponses) {
+        onError("Rating submitted successfully.")
     }
 
 }

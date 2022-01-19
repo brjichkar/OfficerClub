@@ -145,6 +145,10 @@ class FragmentHome : BaseFragment(),HomeMVP.HomeView, ProfileMVP.ProfileView {
         mVideosAdapter.notifyDataSetChanged()
     }
 
+    override fun onServicesSuccess(tempResponse: MutableList<com.android.officersclub.ui_section.home_section.booking_section.model.services.DataX>) {
+
+    }
+
     override fun onProfileSuccessful(userDetails: ProfileResponse.Data.ProfileData) {
         mAppPreference.userName=userDetails.fname!!+ " " + userDetails.mname!!+ " " + userDetails.lname!!
         mAppPreference.userEmail=userDetails.email!!

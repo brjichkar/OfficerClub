@@ -17,6 +17,9 @@
         android:theme="@style/Theme.OfficersClub"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ui_section.home_section.booking_section.details.ActivityServiceDetails"
+            android:exported="false" />
+        <activity
             android:name=".ui_section.home_section.booking_section.details.ActivityDetails"
             android:exported="false"
             android:screenOrientation="portrait" />

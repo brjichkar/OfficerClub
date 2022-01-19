@@ -1,10 +1,12 @@
 package com.android.officersclub.ui_section.home_section.home_section.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.android.officersclub.R
+import com.android.officersclub.ui_section.home_section.booking_section.details.ActivityDetails
 import com.bumptech.glide.Glide
 import com.android.officersclub.ui_section.home_section.home_section.model.DataX
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -23,6 +25,12 @@ class AdapterFacilities (private var facilityList: MutableList<DataX>, private v
                 .skipMemoryCache(true)
                 .placeholder(R.drawable.profile_icon)
                 .into(itemView.iv_news_icon)
+
+            itemView.rl_details.setOnClickListener {
+                val mainActIntent = Intent(mContext, ActivityDetails::class.java)
+                mainActIntent.putExtra("selectedItem",sampleDataModel.facility_code)
+                mContext.startActivity(mainActIntent)
+            }
         }
     }
 

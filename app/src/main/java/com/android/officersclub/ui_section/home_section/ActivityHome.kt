@@ -49,7 +49,9 @@ class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
         main_view_pager.addOnPageChangeListener(this)
 
         main_view_pager.setOnTouchListener(OnTouchListener { v, event -> true })
-
+        mActivityHomeBinding.fab.setOnClickListener {
+            onError("Coming Soon")
+        }
 
         bottomNavigationView.background = null
         bottomNavigationView.menu.getItem(2).isEnabled = false
@@ -87,6 +89,7 @@ class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
                 position = 3
             }
             R.id.i_add -> {
+
                 return false
             }
         }

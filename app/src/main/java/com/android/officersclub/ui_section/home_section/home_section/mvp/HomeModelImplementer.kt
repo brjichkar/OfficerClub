@@ -2,6 +2,7 @@ package com.android.officersclub.ui_section.home_section.home_section.mvp
 
 import com.android.officersclub.api_section.ApiClient
 import com.android.officersclub.api_section.ApiInterface
+import com.android.officersclub.ui_section.home_section.booking_section.model.services.ServicesResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.FacilityResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.gallery.GalleryResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.membership.MembershipModel
@@ -135,6 +136,37 @@ class HomeModelImplementer: HomeMVP.HomeModel {
 
         }catch (e:Exception){
             onVideoFinishedListener.onVideoFailure("")
+        }
+    }
+
+    override fun processServices(
+        onServiceListener: HomeMVP.HomeModel.OnServicesListener,
+        tempRequest: ProfileRequest
+    ) {
+        try{
+            val call=mApiInterfaceService.processServices(tempRequest)
+            call.enqueue(object : Callback<ServicesResponse> {
+                override fun onResponse(call: Call<ServicesResponse>, response: Response<ServicesResponse>)
+                {
+                    if(response.code()==200){
+                        if(response.body()?.status=="Success" && response.body()?.data!=null){
+                            onServiceListener.onServicesSuccess(response.body()?.data!!.data)
+                        }else{
+                            onServiceListener.onServicesFailure("")
+                        }
+                    }
+                    else {
+                        onServiceListener.onServicesFailure(response.errorBody()!!.string())
+                    }
+                }
+                override fun onFailure(call: Call<ServicesResponse>, t: Throwable) {
+                    onServiceListener.onServicesFailure("")
+                }
+
+            })
+
+        }catch (e:Exception){
+            onServiceListener.onServicesFailure("")
         }
     }
 }

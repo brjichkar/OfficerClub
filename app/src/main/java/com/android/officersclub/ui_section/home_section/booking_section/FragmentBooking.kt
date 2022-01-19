@@ -19,7 +19,7 @@ import com.android.officersclub.ui_section.home_section.home_section.mvp.HomePre
 import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
 
 class FragmentBooking : BaseFragment(), HomeMVP.HomeView {
-    private var mHistoryList: MutableList<com.android.officersclub.ui_section.home_section.home_section.model.DataX> = mutableListOf()
+    private var mHistoryList: MutableList<com.android.officersclub.ui_section.home_section.booking_section.model.services.DataX> = mutableListOf()
     private lateinit var mAdapter: AdapterBooking
     private lateinit var rvHistory:RecyclerView
     private lateinit var mPresenter: HomeMVP.HomePresenter
@@ -40,7 +40,7 @@ class FragmentBooking : BaseFragment(), HomeMVP.HomeView {
         val req = ProfileRequest()
         req.jsondata = ProfileRequest().Jsondata()
         req.jsondata!!.userId = mAppPreference.usersId
-        mPresenter.onFacilityRequest(req)
+        mPresenter.onServicesRequest(req)
         return tempView
     }
 
@@ -56,9 +56,7 @@ class FragmentBooking : BaseFragment(), HomeMVP.HomeView {
 
 
     override fun onFacilititySuccessful(tempResponse: Data) {
-        mHistoryList.clear()
-        mHistoryList.addAll(tempResponse.data)
-        mAdapter.notifyDataSetChanged()
+
     }
 
     override fun onFacilitityFailed() {
@@ -72,6 +70,12 @@ class FragmentBooking : BaseFragment(), HomeMVP.HomeView {
     }
 
     override fun onVideosSuccess(tempResponse: MutableList<com.android.officersclub.ui_section.home_section.home_section.model.videos.DataX>) {
+    }
+
+    override fun onServicesSuccess(tempResponse: MutableList<com.android.officersclub.ui_section.home_section.booking_section.model.services.DataX>) {
+        mHistoryList.clear()
+        mHistoryList.addAll(tempResponse)
+        mAdapter.notifyDataSetChanged()
     }
 
 }

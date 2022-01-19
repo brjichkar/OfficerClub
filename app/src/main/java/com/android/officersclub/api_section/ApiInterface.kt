@@ -9,11 +9,16 @@ package com.android.officersclub.api_section
 
 import com.android.officersclub.ui_section.home_section.booking_section.details.model.DetailsRequest
 import com.android.officersclub.ui_section.home_section.booking_section.details.model.DetailsResponse
+import com.android.officersclub.ui_section.home_section.booking_section.details.model.serreq.ServicesDetailsResponse
+import com.android.officersclub.ui_section.home_section.booking_section.details.model.serreq.ServicesRequest
+import com.android.officersclub.ui_section.home_section.booking_section.model.services.ServicesResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.FacilityResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.gallery.GalleryResponse
 import com.android.officersclub.ui_section.home_section.home_section.model.membership.MembershipModel
 import com.android.officersclub.ui_section.home_section.home_section.model.videos.VideosResponse
 import com.android.officersclub.ui_section.home_section.profile_section.family_section.model.FamilyDetailsReponse
+import com.android.officersclub.ui_section.home_section.support_section.model.req.RatingRequest
+import com.android.officersclub.ui_section.home_section.support_section.model.resps.RatingResponses
 import com.android.officersclub.ui_section.login_section.model.LoginRequest
 import com.android.officersclub.ui_section.login_section.model.LoginResponse
 import com.android.officersclub.ui_section.profile_section.model.ProfileRequest
@@ -106,6 +111,27 @@ interface ApiInterface {
     )
     @POST("Facility_Detail")
     fun processDetails(@Body requests: DetailsRequest): Call<DetailsResponse>
+
+    @Headers(value = [
+        "Accept: application/json",
+        "Content-type:application/json"]
+    )
+    @POST("Service")
+    fun processServices(@Body requests: ProfileRequest): Call<ServicesResponse>
+
+    @Headers(value = [
+        "Accept: application/json",
+        "Content-type:application/json"]
+    )
+    @POST("Service_Details")
+    fun processServicesDetails(@Body requests: ServicesRequest): Call<ServicesDetailsResponse>
+
+    @Headers(value = [
+    "Accept: application/json",
+    "Content-type:application/json"]
+    )
+    @POST("Send_Feedback")
+    fun processRatingsSubmit(@Body requests: RatingRequest): Call<RatingResponses>
 
 }
 

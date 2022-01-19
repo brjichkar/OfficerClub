@@ -14,6 +14,7 @@
         android:gravity="center"
         android:padding="@dimen/_10sdp"
         android:text="Profile"
+        android:visibility="gone"
         android:textColor="@color/black"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold" />
