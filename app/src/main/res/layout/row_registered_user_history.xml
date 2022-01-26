@@ -6,8 +6,7 @@
     android:id="@+id/card_individual"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_100sdp"
-    android:background="@color/white"
-    android:backgroundTint="@color/white"
+    android:backgroundTint="@color/divider_line"
     android:layout_marginBottom="@dimen/_2sdp"
     app:cardCornerRadius="@dimen/_5sdp"
     app:cardElevation="@dimen/_3sdp"
@@ -24,18 +23,18 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/app_name"
-            android:paddingEnd="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             />
 
         <ImageView
             android:id="@+id/iv_next"
             android:layout_width="@dimen/_36sdp"
             android:layout_height="@dimen/_36sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_5sdp"
             android:contentDescription="@string/app_name"
             android:paddingEnd="@dimen/_5sdp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
             android:src="@drawable/ic_next" />
 
         <LinearLayout
@@ -56,6 +55,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_2sdp"
                 android:text="Rest House"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 

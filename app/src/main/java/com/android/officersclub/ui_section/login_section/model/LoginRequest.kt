@@ -31,15 +31,15 @@ class LoginRequest {
         @Expose
         var mobile: String? = null
 
-        @SerializedName("auth_code")
+        @SerializedName("password")
         @Expose
-        private var authCode: String? = null
+        private var password: String? = null
         fun getAuthCode(): String? {
-            return authCode
+            return password
         }
 
         fun setAuthCode(authCode: String?) {
-            this.authCode = "auth_code"
+            this.password = authCode
         }
 
         override fun toString(): String {
@@ -52,7 +52,7 @@ class LoginRequest {
             sb.append(',')
             sb.append("authCode")
             sb.append('=')
-            sb.append(if (authCode == null) "<null>" else authCode)
+            sb.append(if (password == null) "<null>" else password)
             sb.append(',')
             if (sb[sb.length - 1] == ',') {
                 sb.setCharAt(sb.length - 1, ']')

@@ -27,6 +27,7 @@
         android:layout_below="@id/tv_booking_title"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:src="@drawable/call_center" />
 

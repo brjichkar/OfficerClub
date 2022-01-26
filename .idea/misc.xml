@@ -22,10 +22,10 @@
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/qr_black.xml" value="0.23425925925925925" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/rounded_square_edt.xml" value="0.2703125" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/drawable/splash_background.xml" value="0.2703125" />
-        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_details.xml" value="0.2056159420289855" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_details.xml" value="0.264" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_family_details.xml" value="0.213768115942029" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_main.xml" value="0.2504528985507246" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_membership.xml" value="0.1852355072463768" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/activity_otp.xml" value="0.264" />
@@ -38,6 +38,7 @@
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/latout_feedback.xml" value="0.1852355072463768" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/latout_list_in_alert.xml" value="0.1852355072463768" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/layout_custome_image_popup.xml" value="0.1852355072463768" />
+        <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/layout_gallery_row.xml" value="0.19429347826086957" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/layout_news_row.xml" value="0.25407608695652173" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/layout_row_membership.xml" value="0.264" />
         <entry key="..\:/Company/OfficersClub/app/src/main/res/layout/progress_dialog.xml" value="0.2504528985507246" />

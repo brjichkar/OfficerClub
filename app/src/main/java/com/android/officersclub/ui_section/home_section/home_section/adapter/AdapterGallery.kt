@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import com.android.officersclub.R
 import com.android.officersclub.ui_section.home_section.home_section.model.gallery.DataX
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.layout_news_row.view.*
-import kotlinx.android.synthetic.main.row_registered_user_history.view.tv_title
 import android.graphics.drawable.ColorDrawable
 import android.app.Dialog
 import android.graphics.Color
 import android.widget.ImageButton
 import android.widget.ImageView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.android.synthetic.main.layout_gallery_row.view.*
 
 class AdapterGallery (private var historyList: MutableList<DataX>, private var mContext: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterGallery.NewsItemAdapter>()
 {
@@ -36,7 +35,7 @@ class AdapterGallery (private var historyList: MutableList<DataX>, private var m
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsItemAdapter {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout_news_row, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout_gallery_row, parent, false)
         return NewsItemAdapter(itemView)
     }
 

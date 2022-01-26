@@ -7,15 +7,11 @@ import android.view.ViewGroup
 import com.android.officersclub.R
 import com.android.officersclub.ui_section.home_section.home_section.model.videos.DataX
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.layout_news_row.view.*
-import kotlinx.android.synthetic.main.row_registered_user_history.view.tv_title
 import android.content.ActivityNotFoundException
-
-import android.R.id
-
 import android.content.Intent
 import android.net.Uri
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.android.synthetic.main.layout_gallery_row.view.*
 
 
 class AdapterVideos (private var historyList: MutableList<DataX>, private var mContext: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<AdapterVideos.NewsItemAdapter>()
@@ -47,7 +43,7 @@ class AdapterVideos (private var historyList: MutableList<DataX>, private var mC
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsItemAdapter {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout_news_row, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout_gallery_row, parent, false)
         return NewsItemAdapter(itemView)
     }
 

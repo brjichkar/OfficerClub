@@ -32,7 +32,7 @@ class LoginPresenterImplementer(loginView: LoginMVP.LoginView) : LoginMVP.LoginP
         }
     }
 
-    override fun onFinished(receivedUserDetails: LoginResponse.Data.ResponseData) {
+    override fun onFinished(receivedUserDetails: LoginResponse.ResponseData) {
         if(mloginView!=null){
             mloginView!!.hideLoading()
             mloginView!!.onLoginSuccessful(receivedUserDetails)

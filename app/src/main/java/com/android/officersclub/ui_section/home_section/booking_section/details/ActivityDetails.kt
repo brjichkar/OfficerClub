@@ -74,7 +74,7 @@ class ActivityDetails : BaseActivity(),ClubDetailsMVP.DetailsView {
 
     override fun onDetailsReceived(tempResponse: DataX) {
         mActivityDetailsBinding.tvName.text =tempResponse.name
-        mActivityDetailsBinding.tvVideo.text = ""+tempResponse.video
+        //mActivityDetailsBinding.tvVideo.text = ""+tempResponse.video
         mLink=tempResponse.video
         if (tempResponse.description.contains("<html")) {
                     mActivityDetailsBinding.webview.loadDataWithBaseURL(

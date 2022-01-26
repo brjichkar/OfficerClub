@@ -21,7 +21,7 @@ class LoginMVP {
 
     interface LoginView : MvpView {
         // usage : function will be used when user login is successful.
-        fun onLoginSuccessful(userDetails: LoginResponse.Data.ResponseData)
+        fun onLoginSuccessful(userDetails: LoginResponse.ResponseData)
 
         // usage : function will be used when user registration is failed.
         fun onLoginFailed()
@@ -53,7 +53,7 @@ class LoginMVP {
         )
 
         interface OnFinishedListener {
-            fun onFinished(receivedUserDetails: LoginResponse.Data.ResponseData)
+            fun onFinished(receivedUserDetails: LoginResponse.ResponseData)
             fun onFailure(warnings: String)
         }
     }

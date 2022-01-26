@@ -40,6 +40,12 @@ class AdapterBooking (private var historyList:
                 mainActIntent.putExtra("selectedItem",sampleDataModel.other_facility_id)
                 mContext.startActivity(mainActIntent)
             }
+
+            itemView.iv_next.setOnClickListener {
+                val mainActIntent = Intent(mContext, ActivityServiceDetails::class.java)
+                mainActIntent.putExtra("selectedItem",sampleDataModel.other_facility_id)
+                mContext.startActivity(mainActIntent)
+            }
         }
     }
 

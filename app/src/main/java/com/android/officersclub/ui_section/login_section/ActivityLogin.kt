@@ -9,11 +9,13 @@ import com.android.officersclub.R
 import com.android.officersclub.app_preferences.AppPreference
 import com.android.officersclub.databinding.ActivityLoginBinding
 import com.android.officersclub.ui_section.base_section.BaseActivity
+import com.android.officersclub.ui_section.home_section.ActivityHome
 import com.android.officersclub.ui_section.login_section.model.LoginRequest
 import com.android.officersclub.ui_section.login_section.model.LoginResponse
 import com.android.officersclub.ui_section.login_section.mvp.LoginMVP
 import com.android.officersclub.ui_section.login_section.mvp.LoginPresenterImplementer
 import com.android.officersclub.ui_section.otp_section.ActivityOtp
+import com.android.officersclub.ui_section.profile_section.ActivityProfile
 
 class ActivityLogin : BaseActivity(),LoginMVP.LoginView {
     private lateinit var mActivityLoginBinding: ActivityLoginBinding
@@ -35,7 +37,7 @@ class ActivityLogin : BaseActivity(),LoginMVP.LoginView {
                 val req=LoginRequest()
                 req.jsondata=LoginRequest().Jsondata()
                 req.jsondata!!.mobile=mActivityLoginBinding.etPhone.text.toString()
-                req.jsondata!!.setAuthCode("auth_code")
+                req.jsondata!!.setAuthCode(mActivityLoginBinding.etPassword.text.toString())
                 mLoginPresenter.onLoginButtonClicked(req)
             }
         }
@@ -66,25 +68,38 @@ class ActivityLogin : BaseActivity(),LoginMVP.LoginView {
      */
     private fun isDataValid():Boolean{
         hideKeyboard()
-        return if (mActivityLoginBinding.etPhone.text.toString().isNotEmpty() && mActivityLoginBinding.etPhone.text.toString().length==10)
-        {
-           true
+        return if (mActivityLoginBinding.etPhone.text.toString().isNotEmpty() && mActivityLoginBinding.etPhone.text.toString().length==10) {
+            if(mActivityLoginBinding.etPassword.text.toString().isNotEmpty()){
+                true
+            } else{
+                onError("Please enter password")
+                false
+            }
         } else {
             onError(R.string.empty_error)
             false
         }
     }
 
-    override fun onLoginSuccessful(userDetails: LoginResponse.Data.ResponseData) {
+    override fun onLoginSuccessful(userDetails: LoginResponse.ResponseData) {
         if(userDetails.mobile!=null && userDetails.profile!=null && userDetails.userId !=null){
             val appPreference=AppPreference(this)
             appPreference.userMobile=userDetails.mobile!!
             appPreference.userProfile=userDetails.profile!!
             appPreference.usersId=userDetails.userId!!
 
-            val mainActIntent = Intent(this, ActivityOtp::class.java)
-            startActivity(mainActIntent)
-            finish()
+            appPreference.isUserLoggedIn=true
+            if(appPreference.userProfile == "1"){
+                val mainActIntent = Intent(this, ActivityHome::class.java)
+                startActivity(mainActIntent)
+                finish()
+            }
+            else{
+                val mainActIntent = Intent(this, ActivityProfile::class.java)
+                mainActIntent.putExtra("is_profile_complete",false)
+                startActivity(mainActIntent)
+                finish()
+            }
         }
         else{
             onError("Invalid data received")

@@ -36,7 +36,7 @@ interface ApiInterface {
         "Accept: application/json",
         "Content-type:application/json"]
     )
-    @POST("Login_check")
+    @POST("User_check")
     fun processLogin(@Body requests: LoginRequest): Call<LoginResponse>
 
     @Headers(value = [

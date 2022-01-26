@@ -49,35 +49,45 @@ class ActivityServiceDetails : BaseActivity(), ClubDetailsMVP.DetailsView {
         }
 
         mActivityServiceDetailsBinding.tvVideo.setOnClickListener {
-            val webIntent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse(mLink)
-            )
-            try {
-                startActivity(webIntent)
-            } catch (ex: ActivityNotFoundException) {
+            if(calls.isEmpty()){
+                onError("Phone no not present")
+            }
+            else {
+                val webIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(mLink)
+                )
+                try {
+                    startActivity(webIntent)
+                } catch (ex: ActivityNotFoundException) {
+                }
             }
         }
 
         mActivityServiceDetailsBinding.tvContact.setOnClickListener {
-            Dexter.withContext(this)
-                .withPermission(Manifest.permission.CALL_PHONE)
-                .withListener(object : PermissionListener {
-                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + calls))
-                        startActivity(intent)
-                    }
+            if(calls.isEmpty()){
+                onError("Phone no not present")
+            }
+            else{
+                Dexter.withContext(this)
+                    .withPermission(Manifest.permission.CALL_PHONE)
+                    .withListener(object : PermissionListener {
+                        override fun onPermissionGranted(response: PermissionGrantedResponse) {
+                            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + calls))
+                            startActivity(intent)
+                        }
 
-                    override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                        onError("Please enable call permission.")
-                    }
+                        override fun onPermissionDenied(response: PermissionDeniedResponse) {
+                            onError("Please enable call permission.")
+                        }
 
-                    override fun onPermissionRationaleShouldBeShown(
-                        permission: PermissionRequest?,
-                        token: PermissionToken?
-                    ) { /* ... */
-                    }
-                }).check()
+                        override fun onPermissionRationaleShouldBeShown(
+                            permission: PermissionRequest?,
+                            token: PermissionToken?
+                        ) { /* ... */
+                        }
+                    }).check()
+            }
         }
 
         val tempjson= Jsondata(facilityCode,mAppPreference.usersId)
@@ -131,21 +141,19 @@ class ActivityServiceDetails : BaseActivity(), ClubDetailsMVP.DetailsView {
             mActivityServiceDetailsBinding.tvAmount.text=tempResponse.amount+" for "+tempResponse.time
         }
 
-        if(tempResponse.mobile.isEmpty()){
-            mActivityServiceDetailsBinding.cvContact.visibility=View.GONE
+        /*if(tempResponse.mobile.isEmpty()){
+            mActivityServiceDetailsBinding.tvContact.visibility=View.GONE
         }
         else{
-            mActivityServiceDetailsBinding.cvContact.visibility=View.VISIBLE
-            mActivityServiceDetailsBinding.tvContact.text="Call us on - "+tempResponse.mobile
+            mActivityServiceDetailsBinding.tvContact.visibility=View.VISIBLE
         }
 
         if(tempResponse.video.isEmpty()){
-            mActivityServiceDetailsBinding.cvVideos.visibility=View.GONE
+            mActivityServiceDetailsBinding.tvVideo.visibility=View.GONE
         }
         else{
-            mActivityServiceDetailsBinding.cvVideos.visibility=View.VISIBLE
-            mActivityServiceDetailsBinding.tvVideo.text =tempResponse.video
-        }
+            mActivityServiceDetailsBinding.tvVideo.visibility=View.VISIBLE
+        }*/
 
         val imageList = ArrayList<SlideModel>() // Create image list
 

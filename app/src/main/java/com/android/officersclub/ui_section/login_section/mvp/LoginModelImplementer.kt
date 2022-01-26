@@ -20,8 +20,8 @@ class LoginModelImplementer : LoginMVP.LoginModel {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>)
                 {
                     if(response.code()==200){
-                        if(response.body()?.status=="Success" && response.body()?.Data()!=null){
-                            onFinishedListener.onFinished(response.body()?.data!!.data!!)
+                        if(response.body()?.status=="Success" && response.body()!=null){
+                            onFinishedListener.onFinished(response.body()?.data!!)
                         }else{
                             onFinishedListener.onFailure("")
                         }

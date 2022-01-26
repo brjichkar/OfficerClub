@@ -42,8 +42,7 @@
                 android:layout_toRightOf="@id/iv_family"
                 android:text="Officer's Club Solapur"
                 android:textColor="#FF3333"
-                android:textSize="@dimen/_14ssp"
-                 />
+                android:textSize="@dimen/_14ssp" />
 
 
             <Button
@@ -65,6 +64,7 @@
             android:paddingStart="@dimen/_12sdp"
             android:paddingEnd="@dimen/_12sdp"
             >
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
