@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="@dimen/_10sdp"
+    android:gravity="center">
+
+
+    <ImageView
+        android:id="@+id/iv_facility"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/_10sdp"
+        android:src="@drawable/amenities" />
+
+    <ImageView
+        android:id="@+id/iv_contact"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/_10sdp"
+        android:src="@drawable/ic_support" />
+
+    <ImageView
+        android:id="@+id/iv_review"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/_10sdp"
+        android:src="@drawable/stars" />
+
+</LinearLayout>

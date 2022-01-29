@@ -80,7 +80,7 @@ class FragmentSupport : BaseFragment(), SupportsMVP.SupportsView {
 
         rl_review.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("market://details?id=com.facebook.katana")
+            intent.data = Uri.parse("market://details?id=com.android.officersclub")
             startActivity(intent)
         }
 

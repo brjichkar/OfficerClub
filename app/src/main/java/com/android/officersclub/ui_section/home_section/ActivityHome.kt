@@ -1,10 +1,12 @@
 package com.android.officersclub.ui_section.home_section
 
+import android.Manifest
+import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -23,8 +25,13 @@ import java.util.ArrayList
 import android.view.MotionEvent
 
 import android.view.View.OnTouchListener
-
-
+import android.widget.*
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 
 
 class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
@@ -50,7 +57,7 @@ class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
 
         main_view_pager.setOnTouchListener(OnTouchListener { v, event -> true })
         mActivityHomeBinding.fab.setOnClickListener {
-            onError("Coming Soon")
+            openDialog()
         }
 
         bottomNavigationView.background = null
@@ -89,7 +96,6 @@ class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
                 position = 3
             }
             R.id.i_add -> {
-
                 return false
             }
         }
@@ -99,6 +105,55 @@ class ActivityHome : BaseActivity(), NavigationBarView.OnItemSelectedListener ,
             previousPosition=position
         }
         return true
+    }
+
+    fun openDialog() {
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this)
+        val rowList: View = layoutInflater.inflate(R.layout.layout_shortcut, null)
+        val ivfacility: ImageView = rowList.findViewById(R.id.iv_facility)
+        val ivContact: ImageView = rowList.findViewById(R.id.iv_contact)
+        val ivReview: ImageView = rowList.findViewById(R.id.iv_review)
+
+        alertDialog.setView(rowList)
+        val dialog: AlertDialog = alertDialog.create()
+
+        ivfacility.setOnClickListener {
+            onPageSelected(0)
+            dialog.dismiss()
+        }
+
+        ivContact.setOnClickListener {
+            dialog.dismiss()
+            Dexter.withContext(this)
+                .withPermission(Manifest.permission.CALL_PHONE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
+                        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "8087027127"))
+                        startActivity(intent)
+                    }
+
+                    override fun onPermissionDenied(response: PermissionDeniedResponse) {
+                        onError("Please enable call permission.")
+                    }
+
+                    override fun onPermissionRationaleShouldBeShown(
+                        permission: PermissionRequest?,
+                        token: PermissionToken?
+                    ) { /* ... */
+                    }
+                }).check()
+        }
+
+        ivReview.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("market://details?id=com.android.officersclub")
+            startActivity(intent)
+        }
+
+
+        dialog.setCancelable(true)
+        dialog.show()
     }
 
     override fun onPageScrollStateChanged(p0: Int) {
