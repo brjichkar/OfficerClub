@@ -27,12 +27,13 @@ class ActivityLogin : BaseActivity(),LoginMVP.LoginView {
             supportActionBar!!.hide()
         }
         mActivityLoginBinding.tvInfo.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Html.fromHtml("<h7 style=\"color: #FFFFFF;\">Solpur's own and most prestigious club - <span style=\"color: #FF0000;\">The Officer's Club Solpur</span>. World class sports facility at a premium location</h6>", Html.FROM_HTML_MODE_COMPACT)
+            Html.fromHtml("<h7 style=\"color: #FFFFFF;\">Solapur's own and most prestigious club - <span style=\"color: #FF0000;\">The Officer's Club Solpur</span>. World class sports facility at a premium location</h6>", Html.FROM_HTML_MODE_COMPACT)
         } else {
-            Html.fromHtml("<h7 style=\"color: #FFFFFF;\">Solpur's own and most prestigious club - <span style=\"color: #FF0000;\">The Officer's Club Solpur</span>. World class sports facility at a premium location</h6>")
+            Html.fromHtml("<h7 style=\"color: #FFFFFF;\">Solapur's own and most prestigious club - <span style=\"color: #FF0000;\">The Officer's Club Solpur</span>. World class sports facility at a premium location</h6>")
         }
         mLoginPresenter= LoginPresenterImplementer(this)
         mActivityLoginBinding.btnLogin.setOnClickListener {
+            //throw RuntimeException("Test Crash"); // Force a crash
             if(isDataValid()){
                 val req=LoginRequest()
                 req.jsondata=LoginRequest().Jsondata()
