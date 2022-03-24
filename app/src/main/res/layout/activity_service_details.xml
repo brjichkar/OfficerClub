@@ -45,15 +45,21 @@
                 android:src="@drawable/ic_notification" />
 
         </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_headers"
+        android:background="@drawable/light_bg">
+
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/image_slider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_180sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             app:iss_auto_cycle="true"
             app:iss_corner_radius="20"
             app:iss_delay="0"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:layout_below="@id/rl_headers"
             app:iss_period="2000" />
 
 
@@ -63,6 +69,29 @@
             android:layout_above="@id/image_slider"
             android:background="@color/dark_gray" />
 
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iv_webs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/image_slider"
+            android:layout_margin="@dimen/_4sdp">
+            <WebView
+                android:id="@+id/webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_above="@id/btm"
+            android:background="@drawable/light_bg" />
 
         <!--<androidx.cardview.widget.CardView
             android:id="@+id/cv_contact"
@@ -120,6 +149,13 @@
 
         </RelativeLayout>
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_above="@id/cv_amount"
+            android:background="@drawable/light_bg" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_amount"
             android:layout_width="match_parent"
@@ -127,7 +163,10 @@
             android:orientation="vertical"
             android:layout_above="@id/btm"
             app:cardBackgroundColor="@color/dark_blue_rounded"
-            android:layout_margin="@dimen/_4sdp">
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            >
             <TextView
                 android:id="@+id/tv_amount"
                 android:layout_width="match_parent"
@@ -139,19 +178,7 @@
                 android:textSize="@dimen/_14ssp" />
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iv_webs"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_below="@id/image_slider"
-            android:layout_above="@id/cv_amount"
-            android:layout_margin="@dimen/_4sdp">
-            <WebView
-                android:id="@+id/webview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </androidx.cardview.widget.CardView>
+
 
 
 

@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "19022345021",
-    "project_id": "officers-club-solapur",
-    "storage_bucket": "officers-club-solapur.appspot.com"
+    "project_number": "1046122150750",
+    "project_id": "officer-club-solapur",
+    "storage_bucket": "officer-club-solapur.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:19022345021:android:9796c6b88d2e0fc1e0cb54",
+        "mobilesdk_app_id": "1:1046122150750:android:b7e45ce75f8081849aedcf",
         "android_client_info": {
-          "package_name": "com.android.officersclub"
+          "package_name": "com.officersclub"
         }
       },
       "oauth_client": [
         {
-          "client_id": "19022345021-j5lsvk09v1jm04oquhtncrrmpv8dlo7t.apps.googleusercontent.com",
+          "client_id": "1046122150750-7opd2pur8bm8p67lahac0qtp3ptpuf6l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCtGX1Z4IcrveH_99R99VP4ostJvFoxIyA"
+          "current_key": "AIzaSyDZgB8xMgZWNTk0aLTs-xzG1qg7dThEniY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "19022345021-j5lsvk09v1jm04oquhtncrrmpv8dlo7t.apps.googleusercontent.com",
+              "client_id": "1046122150750-7opd2pur8bm8p67lahac0qtp3ptpuf6l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

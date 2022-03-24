@@ -20,9 +20,9 @@
 
         <TextView
             android:id="@+id/tv_welcome"
-            android:layout_below="@id/iv_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/iv_logo"
             android:gravity="center"
             android:lineSpacingMultiplier="1.20"
             android:text="@string/welcome"
@@ -37,7 +37,7 @@
             android:layout_below="@id/tv_welcome"
             android:layout_marginTop="@dimen/_5sdp"
             android:gravity="center"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_12ssp" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
